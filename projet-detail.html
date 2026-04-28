@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail du Projet - Yaratech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c5a059;
+            --secondary: #1a1a1a;
+            --accent: #f8f8f8;
+            --text: #ffffff;
+            --text-muted: #a0a0a0;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--secondary);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+        .project-hero {
+            height: 80vh;
+            min-height: 600px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: #1a1a1a;
+        }
+        .project-hero img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 1;
+        }
+        .project-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2;
+        }
+        .project-hero .container {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+        }
+        .project-info-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            margin-top: -10rem;
+            position: relative;
+            z-index: 10;
+            padding: 0 5%;
+        }
+        .info-card {
+            background: var(--white);
+            padding: 4rem;
+            border-radius: 15px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+            color: var(--secondary);
+            min-height: 400px;
+        }
+        .sidebar-card {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            height: fit-content;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .sidebar-card h4 {
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 1rem;
+        }
+        .sidebar-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar-card ul li {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            font-size: 1.1rem;
+        }
+        .sidebar-card ul li i {
+            color: var(--accent);
+        }
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 5rem;
+            margin-bottom: 4rem; /* Gap for mobile */
+        }
+        .gallery-item {
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #eee;
+            position: relative;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+            opacity: 0;
+        }
+        .gallery-item img.loaded {
+            opacity: 1;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        .gallery-full {
+            grid-column: span 2;
+            height: 600px;
+        }
+        @media (max-width: 1024px) {
+            .project-info-grid {
+                grid-template-columns: 1fr;
+                margin-top: 0;
+                padding-top: 4rem;
+            }
+            .nav-center { display: none; }
+            .project-hero { height: 60vh; min-height: 400px; }
+            .gallery-item { height: 350px; }
+            .gallery-full { height: 350px; grid-column: span 1; }
+        }
+
+        /* Footer Black Mode */
+        footer {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            padding: 5rem 5% 2rem !important;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1300px;
+            margin: 0 auto;
+            gap: 4rem;
+        }
+        .footer-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+        .footer-info h3 span {
+            color: #ffffff; /* Removed gold color */
+        }
+        .footer-info p {
+            color: #a0a0a0;
+            max-width: 400px;
+            line-height: 1.6;
+        }
+        .footer-links h4 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links ul li {
+            margin-bottom: 1rem;
+            color: #a0a0a0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .footer-bottom {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-static">
+        <div class="header-content-custom">
+            <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">YARATECH<span>.</span></a></div>
+            <nav class="nav-center">
+                <a href="index.html#accueil">Accueil</a>
+                <a href="services.html">Services</a>
+                <a href="index.html#portfolio">Réalisations</a>
+            </nav>
+            <div class="header-right">
+                <a href="tel:+2120661678047" class="phone-number hide-mobile">+212 06 61 67 80 47</a>
+                <a href="index.html#contact" class="contact-pill-btn hide-mobile">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="project-hero">
+        <img id="hero-img" src="" alt="Project Hero">
+        <div class="container" style="max-width: 1300px; margin: 0 auto; width: 90%;">
+            <h1 id="project-title" style="color: white; font-size: 4rem; font-family: 'Playfair Display', serif;"></h1>
+            <p id="project-category" style="color: var(--accent); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-top: 1rem;"></p>
+        </div>
+    </section>
+
+    <section style="padding: 4rem 5% 8rem;">
+        <div class="project-info-grid container" style="max-width: 1300px; margin: 0 auto;">
+            <div class="info-card">
+                <h2 style="margin-bottom: 2rem; font-size: 2.5rem;">La Demande</h2>
+                <p id="project-desc" style="font-size: 1.2rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 4rem;"></p>
+                
+                <h2 style="margin-bottom: 2rem; font-size: 2.5rem;">L'Objectif</h2>
+                <p id="project-objective" style="font-size: 1.2rem; line-height: 1.8; color: var(--text-muted);"></p>
+
+                <div class="project-gallery" id="project-gallery">
+                    <!-- Gallery items will be injected here -->
+                </div>
+            </div>
+            
+            <div class="sidebar-card">
+                <h4>Services Fournis</h4>
+                <ul id="project-services">
+                    <!-- Services will be injected here -->
+                </ul>
+                
+                <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <h4>Partager</h4>
+                    <div style="display: flex; gap: 1.5rem; font-size: 1.5rem;">
+                        <a href="#" style="color: white;"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" style="color: white;"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" style="color: white;"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="margin-top: 0;">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>YARATECH<span>.</span></h3>
+                <p>Expertise en aménagement sur mesure - Études 3D haute fidélité - Gestion de projet de bout en bout.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> Fes, Maroc, ETG5 Bureau 33, 75 Rue Al Hoceima, Fès 30000</li>
+                    <li><i class="fa-solid fa-envelope"></i> contact@yaratech.ma</li>
+                    <li><i class="fa-solid fa-phone"></i> +212 06 61 67 80 47</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Yaratech. Tous droits réservés.
+        </div>
+    </footer>
+
+    <script>
+        // Project Data
+        const projects = {
+            'coworking': {
+                title: 'Espace Coworking',
+                category: 'Bureaux',
+                heroImg: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80',
+                desc: 'Transformation d\'un ancien plateau industriel en un espace de coworking dynamique favorisant la collaboration.',
+                objective: 'Créer un environnement de travail ergonomique avec des zones de concentration et d\'échanges.',
+                services: ['Architecture d\'intérieur', 'Plans 2D/3D', 'Conception de mobilier'],
+                gallery: [
+                    'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80',
+                    'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80',
+                    'https://images.unsplash.com/photo-1497215728101-d56f51097721?w=1200&q=80'
+                ]
+            },
+            'villa': {
+                title: 'Villa de Luxe',
+                category: 'Résidentiel',
+                heroImg: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80',
+                desc: 'Conception d\'une villa contemporaine aux lignes épurées intégrant des matériaux nobles.',
+                objective: 'Maximiser la lumière naturelle et créer une fluidité entre intérieur et extérieur.',
+                services: ['Architecture moderne', 'Design d\'intérieur', 'Suivi de chantier'],
+                gallery: [
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
+                    'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80',
+                    'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80'
+                ]
+            },
+            'restaurant': {
+                title: 'Restaurant Gourmet',
+                category: 'Restauration',
+                heroImg: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80',
+                desc: 'Aménagement d\'un restaurant gastronomique avec une ambiance feutrée et élégante.',
+                objective: 'Créer une expérience client mémorable à travers un design immersif.',
+                services: ['Concept créatif', 'Agencement salle', 'Éclairage d\'ambiance'],
+                gallery: [
+                    'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80',
+                    'https://images.unsplash.com/photo-1550966841-3ee39b2a444d?w=800&q=80',
+                    'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1200&q=80'
+                ]
+            },
+            'appartement': {
+                title: 'Appartement de Maître',
+                category: 'Résidentiel',
+                heroImg: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80',
+                desc: 'Rénovation d\'un appartement de standing alliant charme de l\'ancien et confort moderne.',
+                objective: 'Optimiser l\'espace tout en conservant le cachet architectural.',
+                services: ['Rénovation lourde', 'Décoration', 'Ameublement'],
+                gallery: [
+                    'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80',
+                    'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&q=80',
+                    'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=1200&q=80'
+                ]
+            },
+            'clinique': {
+                title: 'Clinique Privée',
+                category: 'Médical',
+                heroImg: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&q=80',
+                desc: 'Aménagement d\'un cabinet dentaire haut de gamme respectant les normes d\'hygiène.',
+                objective: 'Offrir un environnement apaisant pour les patients et fonctionnel pour les praticiens.',
+                services: ['Planification médicale', 'Design aseptique', 'Acoustique'],
+                gallery: [
+                    'https://images.unsplash.com/photo-1629908323163-424a29798ef5?w=800&q=80',
+                    'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80',
+                    'https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1200&q=80'
+                ]
+            },
+            'showroom': {
+                title: 'Showroom Concept',
+                category: 'Commercial',
+                heroImg: 'https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1200&q=80',
+                desc: 'Création d\'un espace d\'exposition automobile mettant en scène des véhicules de prestige.',
+                objective: 'Théâtraliser les produits par un jeu de lumières et de contrastes.',
+                services: ['Design de showroom', 'Ingénierie lumière', 'Signalétique'],
+                gallery: [
+                    'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80',
+                    'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80',
+                    'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=1200&q=80'
+                ]
+            },
+            'hotel': {
+                title: 'Hôtel Boutique',
+                category: 'Hôtellerie',
+                heroImg: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80',
+                desc: 'Design intérieur d\'un hôtel de luxe privilégiant le confort et l\'élégance.',
+                objective: 'Créer une identité visuelle forte et accueillante pour une clientèle exigeante.',
+                services: ['Conception des chambres', 'Aménagement lobby', 'Décoration'],
+                gallery: [
+                    'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&q=80',
+                    'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80',
+                    'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=80'
+                ]
+            },
+            'spa': {
+                title: 'Espace Bien-être',
+                category: 'Loisirs',
+                heroImg: 'https://images.unsplash.com/photo-1540555700478-d17b0d58ba06?w=1200&q=80',
+                desc: 'Conception d\'un spa haut de gamme offrant une expérience sensorielle unique.',
+                objective: 'Favoriser la relaxation par l\'utilisation de matériaux naturels et d\'un éclairage doux.',
+                services: ['Aménagement SPA', 'Design sensoriel', 'Gestion technique'],
+                gallery: [
+                    'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80',
+                    'https://images.unsplash.com/photo-1531853127624-1e5a20028274?w=800&q=80',
+                    'https://images.unsplash.com/photo-1596178065864-82f238b6938d?w=1200&q=80'
+                ]
+            },
+            'avocat': {
+                title: 'Cabinet d\'Avocats',
+                category: 'Bureaux',
+                heroImg: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=80',
+                desc: 'Aménagement de bureaux prestigieux reflétant la rigueur et le succès d\'un grand cabinet.',
+                objective: 'Allier confidentialité et élégance dans un cadre professionnel de haut standing.',
+                services: ['Agencement de bureaux', 'Cloisonnement acoustique', 'Choix du mobilier'],
+                gallery: [
+                    'https://images.unsplash.com/photo-1589994965851-98f479c5567d?w=800&q=80',
+                    'https://images.unsplash.com/photo-1453723490680-8b9d7350ddb3?w=800&q=80',
+                    'https://images.unsplash.com/photo-1521791136064-7986c2959210?w=1200&q=80'
+                ]
+            }
+        };
+
+        // Get ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id') || 'coworking';
+        const project = projects[projectId];
+
+        if (project) {
+            document.getElementById('project-title').textContent = project.title;
+            document.getElementById('project-category').textContent = project.category;
+            
+            const heroImg = document.getElementById('hero-img');
+            heroImg.style.opacity = '0';
+            heroImg.style.transition = 'opacity 1s ease';
+            heroImg.onload = () => heroImg.style.opacity = '1';
+            heroImg.onerror = () => {
+                heroImg.src = 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80';
+                heroImg.style.opacity = '1';
+            };
+            heroImg.src = project.heroImg;
+
+            document.getElementById('project-desc').textContent = project.desc;
+            document.getElementById('project-objective').textContent = project.objective;
+
+            // Load services
+            const servicesList = document.getElementById('project-services');
+            project.services.forEach(service => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fa-solid fa-check"></i> ${service}`;
+                servicesList.appendChild(li);
+            });
+
+            // Load gallery
+            const gallery = document.getElementById('project-gallery');
+            project.gallery.forEach((imgSrc, index) => {
+                const div = document.createElement('div');
+                div.className = `gallery-item ${index === 2 ? 'gallery-full' : ''}`;
+                
+                const img = document.createElement('img');
+                img.alt = `Angle ${index + 1}`;
+                img.onload = () => img.classList.add('loaded');
+                img.onerror = () => {
+                    img.src = 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80';
+                    img.classList.add('loaded');
+                };
+                img.src = imgSrc;
+                
+                div.appendChild(img);
+                gallery.appendChild(div);
+            });
+        } else {
+            window.location.href = 'index.html#portfolio';
+        }
+    </script>
+</body>
+</html>

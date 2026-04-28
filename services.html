@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services - Yaratech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        .services-hero {
+            padding: 12rem 5% 6rem;
+            background: #fff;
+            text-align: left;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .services-hero .tagline {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .services-hero h1 {
+            font-size: 4.5rem;
+            color: #1a1a1a;
+            margin-bottom: 4rem;
+            font-weight: 800;
+        }
+
+        .services-display-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 0 5% 8rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .service-display-card {
+            position: relative;
+            height: 500px;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .service-display-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        .service-display-card:hover img {
+            transform: scale(1.1);
+        }
+        .service-display-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 50%, rgba(0,0,0,0.8));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2.5rem;
+            color: white;
+        }
+        .service-display-overlay h3 {
+            font-size: 1.8rem;
+            margin: 0;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        .trust-section {
+            padding: 8rem 5%;
+            background: #fff;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        .devis-btn-container {
+            margin-bottom: 6rem;
+        }
+        .devis-btn {
+            background: #e6a756;
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .devis-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(230, 167, 86, 0.3);
+        }
+        .trust-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .trust-content .tagline {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .trust-content h2 {
+            font-size: 3.5rem;
+            color: #1a1a1a;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+        .trust-content p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+        .features-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+        }
+        .feature-item i {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+        .feature-item h4 {
+            font-size: 1.3rem;
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 1024px) {
+            .services-display-grid { grid-template-columns: 1fr 1fr; }
+            .services-hero h1 { font-size: 3rem; }
+            .trust-content h2 { font-size: 2.5rem; }
+        }
+        @media (max-width: 768px) {
+            .services-display-grid { grid-template-columns: 1fr; }
+            .features-row { grid-template-columns: 1fr; gap: 3rem; }
+            .services-hero { padding-top: 8rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-static">
+        <div class="header-content-custom">
+            <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">YARATECH<span>.</span></a></div>
+            <nav class="nav-center">
+                <a href="index.html#accueil">Accueil</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="index.html#portfolio">Réalisations</a>
+            </nav>
+            <div class="header-right">
+                <a href="tel:+2120661678047" class="phone-number hide-mobile">+212 06 61 67 80 47</a>
+                <a href="index.html#contact" class="contact-pill-btn hide-mobile">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="services-hero">
+            <span class="tagline">VOTRE UNIVERS, NOTRE EXPERTISE</span>
+            <h1>Découvrez nos services</h1>
+        </section>
+
+        <section class="services-display-grid">
+            <div class="service-display-card">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80" alt="Architecte d'intérieur">
+                <div class="service-display-overlay">
+                    <h3>Architecte d'intérieur</h3>
+                </div>
+            </div>
+            <div class="service-display-card">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Aménagement intérieur">
+                <div class="service-display-overlay">
+                    <h3>Aménagement intérieur</h3>
+                </div>
+            </div>
+            <div class="service-display-card">
+                <img src="https://images.unsplash.com/photo-1503387762-592dea58ef23?w=800&q=80" alt="Conception plan 3D & 2D">
+                <div class="service-display-overlay">
+                    <h3>Conception plan 3D & 2D</h3>
+                </div>
+            </div>
+            <div class="service-display-card">
+                <img src="https://images.unsplash.com/photo-1616137466211-f939a670bfb5?w=800&q=80" alt="Design & décoration d'intérieur">
+                <div class="service-display-overlay">
+                    <h3>Design & décoration d'intérieur</h3>
+                </div>
+            </div>
+            <div class="service-display-card">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Aménagement de bureaux">
+                <div class="service-display-overlay">
+                    <h3>Aménagement de bureaux</h3>
+                </div>
+            </div>
+            <div class="service-display-card">
+                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80" alt="Rénovation clé en main">
+                <div class="service-display-overlay">
+                    <h3>Rénovation clé en main</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-section">
+            <div class="devis-btn-container">
+                <a href="devis.html" class="devis-btn">Demandez un devis</a>
+            </div>
+            <div class="trust-content">
+                <span class="tagline">VOTRE UNIVERS, NOTRE EXPERTISE</span>
+                <h2>Confiez vos travaux au leader du marché</h2>
+                <p>Nous apprécions votre confiance. Nos clients nous choisissent ainsi que nos produits car ils savent que nous sommes les meilleurs.</p>
+                
+                <div class="features-row">
+                    <div class="feature-item">
+                        <i class="fa-regular fa-file-lines"></i>
+                        <h4>Travail de qualité</h4>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-regular fa-calendar-check"></i>
+                        <h4>Livraison dans les délais</h4>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-regular fa-clock"></i>
+                        <h4>Suivi complet du projet</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>YARATECH<span>.</span></h3>
+                <p>Expertise en aménagement sur mesure - Études 3D haute fidélité - Gestion de projet de bout en bout.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> Fes, Maroc, ETG5 Bureau 33, 75 Rue Al Hoceima, Fès 30000</li>
+                    <li><i class="fa-solid fa-envelope"></i> contact@yaratech.ma</li>
+                    <li><i class="fa-solid fa-phone"></i> +212 06 61 67 80 47</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Yaratech. Tous droits réservés.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

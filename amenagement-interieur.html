@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aménagement Intérieur - Yaratech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c5a059;
+            --secondary: #1a1a1a;
+            --accent: #e6a756;
+            --text: #2d2d2d;
+            --text-muted: #666666;
+            --white: #ffffff;
+            --bg-light: #f8f6f2;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Hero */
+        .service-hero {
+            height: 70vh;
+            min-height: 500px;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #1a1a1a;
+        }
+        .service-hero img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.6;
+        }
+        .service-hero .container {
+            position: relative;
+            z-index: 3;
+            color: white;
+            padding: 0 5%;
+        }
+        .service-hero h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .service-hero .breadcrumb {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .scroll-down-icon {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            color: white;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-15px) translateX(-50%); }
+            60% { transform: translateY(-7px) translateX(-50%); }
+        }
+
+        /* Content Sections */
+        .service-content-section {
+            padding: 6rem 5%;
+            background: #fff;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .service-content-section p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        .service-content-section h2 {
+            font-size: 3rem;
+            color: #1a1a1a;
+            margin: 4rem 0 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        /* Drop Cap */
+        .drop-cap {
+            float: left;
+            font-size: 6rem;
+            line-height: 0.8;
+            padding-right: 15px;
+            padding-top: 10px;
+            color: #1a1a1a;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Blockquote */
+        .service-blockquote {
+            border-left: 2px solid var(--accent);
+            padding: 2rem 0 2rem 3rem;
+            margin: 4rem 0;
+            position: relative;
+        }
+        .service-blockquote p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-top: 0;
+            line-height: 1.5;
+        }
+
+        /* Dual Gallery */
+        .service-dual-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 4rem auto;
+            max-width: 1400px;
+            padding: 0 5%;
+            flex-wrap: wrap;
+        }
+        .service-dual-gallery img {
+            width: 100%;
+            max-width: 650px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            transition: transform 0.5s ease;
+        }
+        .service-dual-gallery img:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Principles List */
+        .service-principles-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+        .service-principles-list li {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .service-principles-list li i {
+            color: var(--accent);
+            margin-top: 6px;
+        }
+
+        /* CTA Buttons */
+        .avelar-orange-btn {
+            background-color: var(--accent);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(230, 167, 86, 0.2);
+        }
+        .avelar-orange-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(230, 167, 86, 0.3);
+            background-color: #d49645;
+        }
+
+        .text-orange {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Footer Black Mode */
+        footer {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            padding: 5rem 0 2rem !important;
+            width: 100%;
+            display: block;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1300px;
+            margin: 0 auto;
+            gap: 4rem;
+        }
+        .footer-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+        .footer-info p {
+            color: #a0a0a0;
+            max-width: 400px;
+            line-height: 1.6;
+        }
+        .footer-links h4 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links ul li {
+            margin-bottom: 1rem;
+            color: #a0a0a0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .footer-bottom {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 5% 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .faq-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+        }
+        .faq-accordion-custom {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .faq-item-custom {
+            border: none;
+        }
+        .faq-header-custom {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .faq-header-custom i {
+            color: var(--accent);
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .faq-item-custom.active .faq-header-custom i {
+            transform: rotate(90deg);
+        }
+        .faq-body-custom {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            padding-left: 30px;
+        }
+        .faq-item-custom.active .faq-body-custom {
+            max-height: 300px;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .faq-body-custom p {
+            color: #8a8a8a; /* Light gray text as per screenshot */
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* CTA Estimation Box */
+        .cta-estimation-box {
+            background-color: #f8f6f2;
+            padding: 4rem 5%;
+            text-align: center;
+            margin: 4rem 0;
+        }
+        .cta-estimation-box p {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+        }
+
+
+        /* Footer inherited from style.css */
+
+        @media (max-width: 1024px) {
+            .footer-grid { flex-direction: column; gap: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .footer-info h3 { font-size: 2.2rem; }
+        }
+
+        /* Services Grid Section */
+        .services-grid-section {
+            padding: 6rem 5% 10rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .grid-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            color: #1a1a1a;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        .grid-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+        }
+        .services-main-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem 2rem;
+        }
+        .service-card-item {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            group: hover;
+        }
+        .service-card-item .img-container {
+            height: 350px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .service-card-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .service-card-item:hover img {
+            transform: scale(1.1);
+        }
+        .service-card-item h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #111;
+            transition: color 0.3s ease;
+        }
+        .service-card-item:hover h3 {
+            color: var(--accent);
+        }
+        .service-card-item .read-more {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.8;
+        }
+        .service-card-item .read-more i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        .service-card-item:hover .read-more i {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 1100px) {
+            .services-main-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .services-main-grid { grid-template-columns: 1fr; }
+            .grid-title { font-size: 2.2rem; }
+            .service-card-item .img-container { height: 280px; }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="floating-actions">
+        <a href="https://wa.me/212779644502" class="float-btn whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="pulse"></span>
+        </a>
+        <a href="#header" class="float-btn back-to-top" id="backToTop">
+            <i class="fa-solid fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <header id="header">
+        <div class="logo">
+            <a href="index.html">YARATECH<span class="yara-accent">.</span></a>
+            <span class="sub-logo">VOTRE UNIVERS NOTRE EXPERTISE</span>
+        </div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html#accueil">Accueil</a></li>
+                
+                <li class="has-dropdown">
+                    <a href="services.html">Services <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i></a>
+                    <div class="yara-mega-menu">
+                        <div class="yara-mega-explorer">
+                            <div class="yara-mega-nav">
+                                <a href="service-detail.html?id=archi" class="yara-mega-nav-item active" data-mega="arch-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Architecte d'intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="amenagement-interieur.html" class="yara-mega-nav-item" data-mega="am-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Aménagement intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="service-detail.html?id=conception3d" class="yara-mega-nav-item" data-mega="plan-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Conception plan 3D & 2D</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="service-detail.html?id=design" class="yara-mega-nav-item" data-mega="deco-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Design & décoration d'intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="yara-mega-panel">
+                                <div class="yara-mega-content active" id="arch-mega">
+                                    <a href="service-detail.html?id=prix-architecte">Prix architecte d'intérieur</a>
+                                </div>
+                                <div class="yara-mega-content" id="am-mega">
+                                    <a href="service-detail.html?id=am-bureaux">Aménagement de bureaux</a>
+                                    <a href="service-detail.html?id=am-magasin">Aménagement magasin & boutique</a>
+                                    <a href="service-detail.html?id=am-pharmacie">Aménagement pharmacie & parapharmacie</a>
+                                    <a href="service-detail.html?id=am-restaurant">Aménagement restaurant, café & bar</a>
+                                    <a href="service-detail.html?id=am-appartement">Aménagement appartement & studio</a>
+                                    <a href="service-detail.html?id=am-cuisine">Aménagement cuisine</a>
+                                    <a href="service-detail.html?id=am-sdb">Aménagement salle de bain</a>
+                                </div>
+                                <div class="yara-mega-content" id="plan-mega">
+                                    <a href="service-detail.html?id=plan-maison">Plan maison 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-appartement">Plan appartement 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-villa">Plan villa 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-cuisine">Conception cuisine 3D</a>
+                                </div>
+                                <div class="yara-mega-content" id="deco-mega">
+                                    <a href="service-detail.html?id=deco-interieur">Décoratrice & décorateur d'intérieur</a>
+                                    <a href="service-detail.html?id=deco-appartement">Décoration appartement</a>
+                                    <a href="service-detail.html?id=deco-coiffure">Décoration salon de coiffure</a>
+                                    <a href="service-detail.html?id=deco-medical">Décoration cabinet médical & dentaire</a>
+                                    <a href="service-detail.html?id=deco-bureau">Décoration bureau professionnel</a>
+                                    <a href="service-detail.html?id=deco-chambre">Décoration chambre</a>
+                                    <a href="service-detail.html?id=deco-salon">Décoration salon</a>
+                                    <a href="service-detail.html?id=deco-sdb">Décoration salle de bain</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li><a href="realisations.html">Réalisations</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="tel:+2120779644502" class="header-phone hide-mobile">+212 07 79 64 45 02</a>
+            <a href="contact.html" class="cta-button hide-mobile">Contact</a>
+            <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+
+    <section class="service-hero">
+        <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?w=1600&q=80" alt="Aménagement intérieur">
+        <div class="container">
+            <h1>Aménagement intérieur</h1>
+            <div class="breadcrumb">HOME / SERVICES / AMÉNAGEMENT INTÉRIEUR</div>
+        </div>
+        <div class="scroll-down-icon"><i class="fa-solid fa-chevron-down"></i></div>
+    </section>
+
+    <section class="service-content-section">
+        <span class="drop-cap">L</span>'<strong>aménagement intérieur</strong> consiste à organiser un espace existant pour le rendre plus fonctionnel, plus confortable et mieux adapté à son usage réel. Contrairement à une simple décoration, il implique des choix structurants : organisation des volumes, circulation, rangements, éclairage et cohérence globale. Au Maroc, les <strong>travaux d’aménagement intérieur</strong> concernent aussi bien les logements que les espaces professionnels, notamment l’<a href="service-detail.html?id=am-bureaux" class="text-orange">Aménagement de bureaux</a> professionnels.
+        
+        <div style="margin-top: 3rem; text-align: center;">
+            <p style="font-weight: 600; margin-bottom: 1.5rem; color: #666;">Le conseil est gratuit, comment je peux vous aider ?</p>
+            <a href="contact.html" class="avelar-orange-btn">Demander un conseil gratuit</a>
+        </div>
+    </section>
+
+    <div class="service-dual-gallery">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80" alt="Aménagement 1">
+        <img src="https://images.unsplash.com/photo-1618219944342-824e40a13285?w=800&q=80" alt="Aménagement 2">
+    </div>
+
+    <section class="service-content-section">
+        <h2>Aménagement intérieur au Maroc : une approche fonctionnelle et durable</h2>
+        <p>Chez <strong>Yaratech</strong>, nous concevons des projets d’<strong>aménagement intérieur au Maroc</strong> pensés pour répondre à des besoins concrets, avec une vision claire, des solutions durables et une maîtrise des coûts. Chaque espace est analysé dans sa globalité afin d’optimiser son potentiel sans transformations inutiles, notamment pour l’<a href="service-detail.html?id=am-magasin" class="text-orange">Aménagement magasin & boutique</a> et l’<a href="service-detail.html?id=am-sdb" class="text-orange">aménagement salle de bain moderne</a>.</p>
+        
+        <div class="service-blockquote">
+            <p>Un bon aménagement intérieur ne se voit pas toujours, mais il se ressent chaque jour dans l’usage, le confort et la fluidité des espaces.</p>
+        </div>
+
+        <h2>Qu’est-ce que l’aménagement intérieur ?</h2>
+        <p>L’aménagement intérieur vise à exploiter intelligemment un espace sans nécessairement tout reconstruire. Il peut inclure la redistribution des pièces, l’optimisation des rangements, l’amélioration de la circulation, l’intégration de solutions sur mesure et l’adaptation de l’espace à de nouveaux usages, notamment pour l’<a href="service-detail.html?id=am-appartement" class="text-orange">Aménagement appartement & studio</a>.</p>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="font-weight: 600; margin-bottom: 1.5rem; color: #666;">Besoin d’un devis pour votre projet d’aménagement intérieur ?</p>
+            <a href="devis.html" class="avelar-orange-btn">Obtenez un devis en ligne</a>
+        </div>
+    </section>
+
+    <div class="service-dual-gallery">
+        <img src="https://images.unsplash.com/photo-1616137422495-1e902b72174c?w=800&q=80" alt="Aménagement 3">
+        <img src="https://images.unsplash.com/photo-1617806118233-18e1db207af6?w=800&q=80" alt="Aménagement 4">
+    </div>
+
+    <section class="service-content-section">
+        <h2>Travaux d’aménagement intérieur : quand sont-ils nécessaires ?</h2>
+        <p>Plusieurs situations peuvent justifier une intervention en aménagement intérieur :</p>
+        </ul>
+    </section>
+
+    <section class="service-content-section" style="padding-top: 0;">
+        <div style="margin-bottom: 4rem;">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600&q=80" alt="Devis aménagement" style="width: 100%; height: 500px; object-fit: cover; border-radius: 4px; margin-bottom: 3rem;">
+            <h2>Devis et prix de l’aménagement intérieur</h2>
+            <p>Le <strong>prix d’un aménagement intérieur au m²</strong> dépend de plusieurs facteurs : la surface, la complexité des travaux, le niveau de finition, les solutions sur mesure et l’accompagnement souhaité. Un <strong>devis d’aménagement intérieur</strong> permet de clarifier le périmètre des travaux, les priorités et les coûts associés afin d’éviter les imprévus, notamment dans une approche globale.</p>
+        </div>
+    </section>
+
+    <div class="cta-estimation-box">
+        <p>Vous souhaitez estimer le prix de votre aménagement intérieur ?</p>
+        <a href="devis.html" class="avelar-orange-btn">Obtenez une estimation maintenant</a>
+    </div>
+
+    <section class="faq-section">
+        <h2 class="faq-title">FAQ – Aménagement intérieur</h2>
+        <div class="faq-accordion-custom">
+            <div class="faq-item-custom">
+                <div class="faq-header-custom">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <span>Quelle est la différence entre aménagement intérieur et rénovation ?</span>
+                </div>
+                <div class="faq-body-custom">
+                    <p>L’aménagement intérieur organise et optimise l’espace existant, tandis que la rénovation implique souvent des interventions plus lourdes sur le bâti ou les installations.</p>
+                </div>
+            </div>
+            <div class="faq-item-custom">
+                <div class="faq-header-custom">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <span>Quand faut-il prévoir des travaux d’aménagement intérieur ?</span>
+                </div>
+                <div class="faq-body-custom">
+                    <p>Il est idéal de les prévoir lors d'un emménagement, d'un changement de mode de vie ou simplement pour optimiser un espace devenu peu pratique.</p>
+                </div>
+            </div>
+            <div class="faq-item-custom">
+                <div class="faq-header-custom">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <span>Comment est calculé le prix de l’aménagement intérieur au m² ?</span>
+                </div>
+                <div class="faq-body-custom">
+                    <p>Le prix dépend de la complexité des menuiseries sur mesure, de la qualité des matériaux choisis et de l'ampleur des modifications.</p>
+                </div>
+            </div>
+            <div class="faq-item-custom">
+                <div class="faq-header-custom">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <span>Un devis est-il indispensable avant de commencer ?</span>
+                </div>
+                <div class="faq-body-custom">
+                    <p>Oui, absolument. Le devis permet de fixer un cadre budgétaire précis et de définir le planning des travaux.</p>
+                </div>
+            </div>
+            <div class="faq-item-custom">
+                <div class="faq-header-custom">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <span>L’aménagement intérieur augmente-t-il la valeur d’un bien ?</span>
+                </div>
+                <div class="faq-body-custom">
+                    <p>Oui, un espace bien optimisé et au design soigné augmente significativement la valeur perçue et réelle d'un bien.</p>
+                </div>
+            </div>
+            <div class="faq-item-custom">
+                <div class="faq-header-custom">
+                    <i class="fa-solid fa-caret-right"></i>
+                    <span>Travaillez-vous sur des projets partout au Maroc ?</span>
+                </div>
+                <div class="faq-body-custom">
+                    <p>Oui, nous intervenons dans toutes les grandes villes du Maroc pour tous types de projets d'aménagement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unified Services Slider -->
+    <section class="yara-slider-section" style="background: #fff; padding-bottom: 10rem;">
+        <div class="yara-slider-container">
+            <div class="yara-slider-header">
+                <h2 class="slider-title">Nos services d’aménagement intérieur</h2>
+            </div>
+            <div class="yara-slider-wrapper">
+                <div class="yara-slider-track-container">
+                    <div class="yara-slider-track">
+                        <!-- Bureaux -->
+                        <a href="service-detail.html?id=am-bureaux" class="yara-slider-item">
+                            <div class="yara-slider-img">
+                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Aménagement de bureaux">
+                            </div>
+                            <h3>Aménagement de bureaux</h3>
+                        </a>
+
+                        <!-- Magasin -->
+                        <a href="service-detail.html?id=am-magasin" class="yara-slider-item">
+                            <div class="yara-slider-img">
+                                <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&q=80" alt="Magasin">
+                            </div>
+                            <h3>Aménagement magasin & boutique</h3>
+                        </a>
+
+                        <!-- Pharmacie -->
+                        <a href="service-detail.html?id=am-pharmacie" class="yara-slider-item">
+                            <div class="yara-slider-img">
+                                <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?w=800&q=80" alt="Pharmacie">
+                            </div>
+                            <h3>Aménagement pharmacie & parapharmacie</h3>
+                        </a>
+
+                        <!-- Restaurant -->
+                        <a href="service-detail.html?id=am-restaurant" class="yara-slider-item">
+                            <div class="yara-slider-img">
+                                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Restaurant">
+                            </div>
+                            <h3>Aménagement restaurant, café & bar</h3>
+                        </a>
+
+                        <!-- Appartement -->
+                        <a href="service-detail.html?id=am-appartement" class="yara-slider-item">
+                            <div class="yara-slider-img">
+                                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" alt="Appartement">
+                            </div>
+                            <h3>Aménagement appartement & studio</h3>
+                        </a>
+
+                        <!-- Cuisine -->
+                        <a href="service-detail.html?id=am-cuisine" class="yara-slider-item">
+                            <div class="yara-slider-img">
+                                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800&q=80" alt="Cuisine">
+                            </div>
+                            <h3>Aménagement cuisine</h3>
+                        </a>
+
+                        <!-- Salle de bain -->
+                        <a href="service-detail.html?id=am-sdb" class="yara-slider-item">
+                            <div class="yara-slider-img">
+                                <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Salle de bain">
+                            </div>
+                            <h3>Aménagement salle de bain</h3>
+                        </a>
+                    </div>
+                </div>
+                <!-- Arrow Navigation Below -->
+                <div class="yara-slider-arrows">
+                    <button class="yara-slider-arrow yara-slider-prev"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="yara-slider-arrow yara-slider-next"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="potu-container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>YARATECH<span>.</span></h3>
+                    <p>Expertise en aménagement sur mesure - Études 3D haute fidélité - Gestion de projet de bout en bout.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> Fes, Maroc, ETG5 Bureau 33, 75 Rue Al Hoceima, Fès 30000</li>
+                        <li><i class="fa-solid fa-envelope"></i> contact@yaratech.ma</li>
+                        <li><i class="fa-solid fa-phone"></i> +212 07 79 64 45 02</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Yaratech. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-header-custom').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                
+                // Optional: Close other items
+                document.querySelectorAll('.faq-item-custom').forEach(otherItem => {
+                    if (otherItem !== item) otherItem.classList.remove('active');
+                });
+
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

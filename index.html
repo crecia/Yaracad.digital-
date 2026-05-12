@@ -8,23 +8,94 @@
     <meta name="description"
         content="Yaratech est votre expert en architecture d'intérieur premium au Maroc. Conception 3D, aménagement de bureaux et villas de luxe.">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
+    <div class="floating-actions">
+        <a href="https://wa.me/212779644502" class="float-btn whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="pulse"></span>
+        </a>
+        <a href="#header" class="float-btn back-to-top" id="backToTop">
+            <i class="fa-solid fa-chevron-up"></i>
+        </a>
+    </div>
+
+    
     <header id="header">
-        <div class="logo">YARATECH<span>.</span></div>
+        <div class="logo">
+            <a href="index.html">YARATECH<span class="yara-accent">.</span></a>
+            <span class="sub-logo">VOTRE UNIVERS NOTRE EXPERTISE</span>
+        </div>
         <nav id="nav-menu">
             <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="index.html#accueil">Accueil</a></li>
+                
+                <li class="has-dropdown">
+                    <a href="services.html">Services <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i></a>
+                    <div class="yara-mega-menu">
+                        <div class="yara-mega-explorer">
+                            <div class="yara-mega-nav">
+                                <a href="service-detail.html?id=archi" class="yara-mega-nav-item active" data-mega="arch-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Architecte d'intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="amenagement-interieur.html" class="yara-mega-nav-item" data-mega="am-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Aménagement intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="service-detail.html?id=conception3d" class="yara-mega-nav-item" data-mega="plan-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Conception plan 3D & 2D</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="service-detail.html?id=design" class="yara-mega-nav-item" data-mega="deco-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Design & décoration d'intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="yara-mega-panel">
+                                <div class="yara-mega-content active" id="arch-mega">
+                                    <a href="service-detail.html?id=prix-architecte">Prix architecte d'intérieur</a>
+                                </div>
+                                <div class="yara-mega-content" id="am-mega">
+                                    <a href="service-detail.html?id=am-bureaux">Aménagement de bureaux</a>
+                                    <a href="service-detail.html?id=am-magasin">Aménagement magasin & boutique</a>
+                                    <a href="service-detail.html?id=am-pharmacie">Aménagement pharmacie & parapharmacie</a>
+                                    <a href="service-detail.html?id=am-restaurant">Aménagement restaurant, café & bar</a>
+                                    <a href="service-detail.html?id=am-appartement">Aménagement appartement & studio</a>
+                                    <a href="service-detail.html?id=am-cuisine">Aménagement cuisine</a>
+                                    <a href="service-detail.html?id=am-sdb">Aménagement salle de bain</a>
+                                </div>
+                                <div class="yara-mega-content" id="plan-mega">
+                                    <a href="service-detail.html?id=plan-maison">Plan maison 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-appartement">Plan appartement 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-villa">Plan villa 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-cuisine">Conception cuisine 3D</a>
+                                </div>
+                                <div class="yara-mega-content" id="deco-mega">
+                                    <a href="service-detail.html?id=deco-interieur">Décoratrice & décorateur d'intérieur</a>
+                                    <a href="service-detail.html?id=deco-appartement">Décoration appartement</a>
+                                    <a href="service-detail.html?id=deco-coiffure">Décoration salon de coiffure</a>
+                                    <a href="service-detail.html?id=deco-medical">Décoration cabinet médical & dentaire</a>
+                                    <a href="service-detail.html?id=deco-bureau">Décoration bureau professionnel</a>
+                                    <a href="service-detail.html?id=deco-chambre">Décoration chambre</a>
+                                    <a href="service-detail.html?id=deco-salon">Décoration salon</a>
+                                    <a href="service-detail.html?id=deco-sdb">Décoration salle de bain</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li><a href="realisations.html">Réalisations</a></li>
             </ul>
         </nav>
         <div class="header-actions">
-            <a href="tel:+2120661678047" class="header-phone hide-mobile">+212 06 61 67 80 47</a>
-            <a href="#contact" class="cta-button hide-mobile">Contact</a>
+            <a href="tel:+2120779644502" class="header-phone hide-mobile">+212 07 79 64 45 02</a>
+            <a href="contact.html" class="cta-button hide-mobile">Contact</a>
             <div class="mobile-nav-toggle" id="mobile-nav-toggle">
                 <span></span>
                 <span></span>
@@ -32,336 +103,282 @@
             </div>
         </div>
     </header>
+    
 
-    <section id="intro">
-        <div class="intro-tag">BASÉE À Fes, MAROC</div>
-        <h2>Aménagement d'intérieur en toute sérénité grâce à l'expertise de nos Architectes et Décorateurs</h2>
-        <p class="intro-sub">Design sur mesure - Étude 3D avant travaux - Conseils experts - Sans surprise de budget</p>
+    <!-- HERO SECTION -->
+    <section id="accueil" class="potu-hero">
+        <div class="potu-container potu-hero-inner">
+            <div class="potu-hero-left reveal-left">
+                <span class="potu-subtitle">/// ARCHITECTURE & INTÉRIEUR</span>
+                <h1 class="potu-title">
+                    <span class="outline-potu">Élevez</span><br>
+                    votre espace<br>
+                    <span class="text-yellow">de vie.</span>
+                </h1>
+                <p class="potu-desc">Yaratech, expert en aménagement sur mesure au Maroc. Nous transformons vos visions en réalités concrètes avec un design d'exception.</p>
+                <div class="potu-hero-btns">
+                    <a href="devis.html" class="potu-btn-hero">DÉMARRER LE PROJET <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
 
-        <div class="intro-circles">
-            <div class="circle-item">
-                <div class="circle-img">
-                    <img src="/assets/bureau.webp" alt="Aménagement de bureaux">
-                </div>
-                <h4>Aménagement de bureaux</h4>
             </div>
-            <div class="circle-item">
-                <div class="circle-img">
-                    <img src="/assets/salon.png" alt="Décoration salon de coiffure">
+            <div class="potu-hero-right reveal-right">
+                <div class="potu-hero-img-box">
+                    <img src="assets/hero.png" alt="Architecture hero">
                 </div>
-                <h4>Décoration salon de coiffure</h4>
-            </div>
-            <div class="circle-item">
-                <div class="circle-img">
-                    <img src="/assets/cafe.webp" alt="Aménagement restaurant, café & bar">
+                <div class="potu-scroll-down">
+                    <span>SCROLL DOWN</span>
+                    <div class="potu-line"></div>
                 </div>
-                <h4>Aménagement restaurant, café & bar</h4>
-            </div>
-            <div class="circle-item">
-                <div class="circle-img">
-                    <img src="/assets/vill 3d.png" alt="Plan villa 3D & 2D">
-                </div>
-                <h4>Plan villa 3D & 2D</h4>
-            </div>
-            <div class="circle-item">
-                <div class="circle-img">
-                    <img src="/assets/conception 3D.webp" alt="Conception plan 3D & 2D">
-                </div>
-                <h4>Conception plan 3D & 2D</h4>
-            </div>
-            <div class="circle-item">
-                <div class="circle-img">
-                    <img src="/assets/pharmacie.jpg" alt="Aménagement pharmacie & parapharmacie">
-                </div>
-                <h4>Aménagement pharmacie & parapharmacie</h4>
             </div>
         </div>
     </section>
 
-    <section id="accueil" class="hero">
-        <h1>Élevez votre espace de vie avec élégance</h1>
-        <p>Expert en architecture d'intérieur et aménagement sur mesure au Maroc. Nous transformons vos visions en
-            réalités concrètes.</p>
-        <div class="hero-btns">
-            <a href="devis.html" class="cta-button">Démarrer mon projet</a>
-        </div>
-    </section>
-    <section id="needs-solutions">
-        <div class="section-title">
-            <h2>Votre Projet, Notre Accompagnement</h2>
-            <p>Nous apportons des réponses claires à vos interrogations pour un projet en toute sérénité.</p>
-        </div>
-        <div class="needs-grid">
-            <div class="need-item">
-                <h3>Par où commencer pour rénover ou aménager mon espace <span class="underline">au Maroc ?</span></h3>
-                <p>Yaratech commence par une visite et un échange approfondi pour lancer une étude de projet claire et
-                    structurée, dans le cadre d'un <span class="highlight">aménagement intérieur clé en main</span>.</p>
+    <!-- ABOUT SECTION -->
+    <section id="intro" class="potu-section" style="background-color: #ffffff; padding: 120px 0;">
+        <div class="potu-container">
+            <div class="potu-about-flex">
+                <div class="potu-about-accordion-side">
+                    <span class="potu-subtitle reveal">/// À PROPOS DE NOUS</span>
+                    <h2 class="reveal">Il y a plein de<br>raisons de faire<br>appel à Yaratech&nbsp;:</h2>
+                    <p class="reveal" style="color: #666; font-size: 16px; margin: 20px 0 40px 0; line-height: 1.6;">Yaratech est votre partenaire de confiance pour transformer vos espaces. Nous allions créativité architecturale et rigueur technique pour offrir des solutions d'aménagement qui dépassent vos attentes.</p>
+                    
+                    <div class="yara-accordion">
+                        <div class="yara-acc-item">
+                            <div class="yara-acc-head">
+                                <span class="yara-icon">+</span>
+                                <span>Visualisation 3D réaliste</span>
+                            </div>
+                            <div class="yara-acc-body">
+                                <p>Difficile de se projeter avec un simple plan en 2D ? Grâce à nos modélisations 3D photoréalistes, vous verrez <strong>votre futur intérieur comme s'il était déjà terminé</strong>, y compris pour l'aménagement de restaurant et café.</p>
+                                <ul>
+                                    <li>Choisissez vos matériaux, couleurs, meubles et ambiances...</li>
+                                    <li>Naviguez dans votre espace et ajustez les détails avant les travaux.</li>
+                                    <li>Soyez certain(e) que le résultat final correspond à vos attentes.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="yara-acc-item">
+                            <div class="yara-acc-head">
+                                <span class="yara-icon">+</span>
+                                <span>Accompagnement professionnel</span>
+                            </div>
+                            <div class="yara-acc-body">
+                                <p>De la conception à la livraison, notre équipe vous guide à <strong>chaque étape du projet</strong> et répond à toutes vos questions avec réactivité et transparence.</p>
+                                <ul>
+                                    <li>Réunion de cadrage pour comprendre vos besoins.</li>
+                                    <li>Suivi régulier et points d'avancement.</li>
+                                    <li>Livraison dans les délais convenus.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="yara-acc-item">
+                            <div class="yara-acc-head">
+                                <span class="yara-icon">+</span>
+                                <span>Expertise technique & esthétique</span>
+                            </div>
+                            <div class="yara-acc-body">
+                                <p>Notre équipe combine <strong>maîtrise technique et sens aiguë de l'esthétique</strong> pour des intérieurs alliant beauté, fonctionnalité et durabilité.</p>
+                                <ul>
+                                    <li>Connaissance des matériaux et tendances actuelles.</li>
+                                    <li>Créations sur mesure adaptées à chaque espace.</li>
+                                    <li>Finitions soignées dans les moindres détails.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="yara-acc-item">
+                            <div class="yara-acc-head">
+                                <span class="yara-icon">+</span>
+                                <span>Transparence & liberté</span>
+                            </div>
+                            <div class="yara-acc-body">
+                                <p>Devis clairs, tarifs transparents et <strong>respect total de votre budget</strong>. Vous gardez le contrôle à chaque instant, sans mauvaises surprises.</p>
+                                <ul>
+                                    <li>Devis détaillé et gratuit avant tout engagement.</li>
+                                    <li>Pas de frais cachés ni de surcots imprévus.</li>
+                                    <li>Liberté de modifier ou valider à chaque étape.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="yara-acc-item">
+                            <div class="yara-acc-head">
+                                <span class="yara-icon">+</span>
+                                <span>Expertise à l'international : une équipe dans plusieurs pays</span>
+                            </div>
+                            <div class="yara-acc-body">
+                                <p>Yaratech intervient au Maroc et à l'international, avec une <strong>équipe multiculturelle et expérimentée</strong> capable de s'adapter à tout contexte.</p>
+                                <ul>
+                                    <li>Projets réalisés au Maroc, en France et en Europe.</li>
+                                    <li>Compréhension des codes culturels et tendances mondiales.</li>
+                                    <li>Collaboration à distance possible avec suivi digital complet.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="potu-about-image-side reveal-right">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=900&q=80" alt="Intérieur Yaratech">
+                    
+                    <div class="yara-floating-stats">
+                        <div class="yara-stat-card">
+                            <span class="stat-label">Projects</span>
+                            <h3>947+</h3>
+                            <span class="stat-sub">Avec succès</span>
+                        </div>
+                        <div class="yara-stat-card">
+                            <span class="stat-label">Équipe de</span>
+                            <h3>6</h3>
+                            <span class="stat-sub">Architectes d'intérieur</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="need-item">
-                <h3>Comment éviter les erreurs <span class="underline">dans mes travaux ?</span></h3>
-                <p>Moodboard, plans 2D, vues 3D et accompagnement professionnel, dans le cadre d'une <span
-                        class="highlight">conception de plans 3D et 2D</span>.</p>
-            </div>
-            <div class="need-item">
-                <h3>Quel budget prévoir pour mon aménagement à <span class="underline">Casablanca, Rabat ou ailleurs au
-                        Maroc ?</span></h3>
-                <p>Des solutions créatives, réalistes et adaptées au marché marocain, proposées par un <span
-                        class="highlight">architecte d'intérieur au Maroc</span>.</p>
-            </div>
-            <div class="need-item">
-                <h3>À qui confier les travaux <span class="underline">d'aménagement ?</span></h3>
-                <p>Recommandation des prestataires fiables, sans engagement ni commissions, dans le cadre de l' <span
-                        class="highlight">aménagement de bureaux professionnels</span>.</p>
-            </div>
-            <div class="need-item">
-                <h3>Comment être sûr que le design correspond à <span class="underline">mon style de vie ?</span></h3>
-                <p>Nous vous écoutons, analysons vos goûts et vos contraintes pour créer un intérieur sur-mesure, axé
-                    sur le <span class="highlight">design et décoration d'intérieur</span>.</p>
-            </div>
-            <div class="need-item">
-                <h3>Qui peut suivre les travaux <span class="underline">sans les exécuter ?</span></h3>
-                <p>Yaratech vous accompagne en toute indépendance tout au long du chantier, avec une vision claire du
-                    <span class="highlight">prix d'un architecte d'intérieur</span>.
-                </p>
-            </div>
-        </div>
-        <div class="needs-cta">
-            <a href="devis.html" class="dark-cta-button">Étude projet Rapide <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
 
-    <section id="portfolio">
-        <div class="section-title">
-            <h2>Nos Réalisations</h2>
-            <p>Découvrez nos derniers projets d'aménagement et de décoration à travers le Maroc.</p>
-        </div>
-        <div class="portfolio-grid">
-            <a href="projet-detail.html?id=coworking" class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80"
-                    alt="Espace Coworking Moderne">
-                <div class="portfolio-overlay">
-                    <h3>Espace Coworking</h3>
-                    <p>Design Moderne & Ergonomique</p>
-                </div>
-            </a>
-            <a href="projet-detail.html?id=villa" class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80"
-                    alt="Villa de Luxe Contemporaine">
-                <div class="portfolio-overlay">
-                    <h3>Villa de Luxe</h3>
-                    <p>Architecture Contemporaine</p>
-                </div>
-            </a>
-            <a href="projet-detail.html?id=restaurant" class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80"
-                    alt="Restaurant Gastronomique">
-                <div class="portfolio-overlay">
-                    <h3>Restaurant Gourmet</h3>
-                    <p>Ambiance Chaleureuse & Chic</p>
-                </div>
-            </a>
-            <a href="projet-detail.html?id=appartement" class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80"
-                    alt="Appartement de Maître Luxe">
-                <div class="portfolio-overlay">
-                    <h3>Appartement de Maître</h3>
-                    <p>Raffinement & Modernité</p>
-                </div>
-            </a>
-            <a href="projet-detail.html?id=clinique" class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&q=80"
-                    alt="Clinique Dentaire Moderne">
-                <div class="portfolio-overlay">
-                    <h3>Clinique Privée</h3>
-                    <p>Ergonomie & Sérénité</p>
-                </div>
-            </a>
-            <a href="projet-detail.html?id=showroom" class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1200&q=80"
-                    alt="Showroom Automobile Concept">
-                <div class="portfolio-overlay">
-                    <h3>Showroom Concept</h3>
-                    <p>Mise en valeur & Éclairage</p>
-                </div>
-            </a>
-            <a href="projet-detail.html?id=hotel" class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80"
-                    alt="Hôtel Boutique Design">
-                <div class="portfolio-overlay">
-                    <h3>Hôtel Boutique</h3>
-                    <p>Luxe & Hospitalité</p>
-                </div>
-            </a>
-            <a href="projet-detail.html?id=spa" class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1540555700478-d17b0d58ba06?w=1200&q=80"
-                    alt="Espace Bien-être Spa">
-                <div class="portfolio-overlay">
-                    <h3>Espace Bien-être</h3>
-                    <p>Détente & Sérénité</p>
-                </div>
-            </a>
-            <a href="projet-detail.html?id=avocat" class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=80"
-                    alt="Cabinet d'Avocats Prestige">
-                <div class="portfolio-overlay">
-                    <h3>Cabinet d'Avocats</h3>
-                    <p>Prestige & Sobriété</p>
-                </div>
-            </a>
-        </div>
-    </section>
-    <section id="process-modern">
-        <div class="process-container">
-            <div class="process-left">
-                <h2 class="accent-title">Yaratech, Comment ça marche ?</h2>
-                <p class="process-intro">On commence par vous écouter pour comprendre vos besoins et révéler le
-                    potentiel de votre espace. Nous imaginons une solution créative, réaliste et adaptée à votre budget,
-                    avec un <span class="highlight">plan maison 3D et 2D</span>. Vous restez libre de choisir vos
-                    prestataires, et Yaratech vous accompagne en toute indépendance jusqu'à la concrétisation.</p>
+    
+    
+    
+    <!-- SERVICES SECTION (Numbered Grid from Screenshot 3) -->
+    <!-- SERVICES SECTION (Horizontal Rows from Screenshot 20) -->
+    <section id="services" class="yara-home-services">
+        <div class="potu-container">
+            <div class="yara-services-header reveal">
+                <span class="yara-tagline">VOTRE UNIVERS, NOTRE EXPERTISE</span>
+                <h2 class="yara-services-title">Découvrez nos services</h2>
             </div>
-            <div class="process-right">
-                <div class="process-item active">
-                    <div class="process-header" onclick="toggleProcess(this)">
-                        <span class="process-num">1.</span>
-                        <h4>Prise de contact</h4>
-                        <i class="fa-solid fa-chevron-down"></i>
+            
+            <div class="yara-services-list">
+                <!-- Item 1 -->
+                <div class="yara-service-row reveal" onclick="window.location.href='services.html'">
+                    <div class="yara-service-icon">
+                        <i class="fa-solid fa-compass-drafting"></i>
                     </div>
-                    <div class="process-body">
-                        <p>Un premier échange en visio, Téléphone ou au bureau pour comprendre votre projet, avec un
-                            <span class="highlight-alt">plan appartement 3D et 2D</span>.
-                        </p>
+                    <div class="yara-service-content">
+                        <h3>Architecte d'intérieur.</h3>
+                        <span class="yara-explorer">Explorer</span>
                     </div>
+                    <div class="yara-service-circle-end"></div>
                 </div>
-                <div class="process-item">
-                    <div class="process-header" onclick="toggleProcess(this)">
-                        <span class="process-num">2.</span>
-                        <h4>Analyse & Conception</h4>
-                        <i class="fa-solid fa-chevron-down"></i>
+                
+                <!-- Item 2 -->
+                <div class="yara-service-row reveal" onclick="window.location.href='amenagement-interieur.html'">
+                    <div class="yara-service-icon">
+                        <i class="fa-solid fa-couch"></i>
                     </div>
-                    <div class="process-body">
-                        <p>Études techniques, visuels et plans 3D selon vos envies et contraintes, avec un <span
-                                class="highlight-alt">plan villa 3D et 2D</span>.</p>
+                    <div class="yara-service-content">
+                        <h3>Aménagement intérieur.</h3>
+                        <span class="yara-explorer">Explorer</span>
                     </div>
+                    <div class="yara-service-circle-end"></div>
                 </div>
-                <div class="process-item">
-                    <div class="process-header" onclick="toggleProcess(this)">
-                        <span class="process-num">3.</span>
-                        <h4>Remise d’un dossier complet</h4>
-                        <i class="fa-solid fa-chevron-down"></i>
+                
+                <!-- Item 3 -->
+                <div class="yara-service-row reveal" onclick="window.location.href='services.html'">
+                    <div class="yara-service-icon">
+                        <i class="fa-solid fa-cube"></i>
                     </div>
-                    <div class="process-body">
-                        <p>Budget estimatif, matériaux, artisans, délais. Tout est clair et planifié pour <span
-                                class="highlight-alt">l’aménagement de magasins et boutiques</span>.</p>
+                    <div class="yara-service-content">
+                        <h3>Conception plan 3D & 2D.</h3>
+                        <span class="yara-explorer">Explorer</span>
                     </div>
+                    <div class="yara-service-circle-end"></div>
                 </div>
-                <div class="process-item">
-                    <div class="process-header" onclick="toggleProcess(this)">
-                        <span class="process-num">4.</span>
-                        <h4>Lancement du projet ou suivi</h4>
-                        <i class="fa-solid fa-chevron-down"></i>
+                
+                <!-- Item 4 -->
+                <div class="yara-service-row reveal" onclick="window.location.href='services.html'">
+                    <div class="yara-service-icon">
+                        <i class="fa-solid fa-paint-roller"></i>
                     </div>
-                    <div class="process-body">
-                        <p>Nous vous mettons en relation avec des artisans fiables et nous assurons le suivi du chantier
-                            à vos côtés, sans réaliser les travaux nous-mêmes, pour <span
-                                class="highlight-alt">l’aménagement de pharmacie et parapharmacie</span>.</p>
+                    <div class="yara-service-content">
+                        <h3>Design & décoration d'intérieur.</h3>
+                        <span class="yara-explorer">Explorer</span>
                     </div>
+                    <div class="yara-service-circle-end"></div>
                 </div>
+            </div>
+            
+            <div class="yara-services-footer reveal">
+                <a href="contact.html" class="yara-devis-btn">Demandez un devis</a>
             </div>
         </div>
     </section>
-    <section id="services">
-        <div class="section-title">
-            <h2>Nos Domaines d'Expertise</h2>
-            <p>Une expertise technique complète pour tous vos projets d'architecture et d'aménagement.</p>
+
+
+    <!-- POTU EXACT CLONE: Portfolio -->
+
+    <section id="portfolio" class="potu-section potu-bg-dark">
+        <div class="potu-container">
+            <div class="potu-section-heading flex-heading">
+                <div>
+                    <span class="potu-subtitle">/// OUR PROJECTS</span>
+                    <h2 class="potu-section-title">Explorez nos<br>Réalisations</h2>
+                </div>
+                <a href="realisations.html" class="potu-btn potu-btn-outline">EXPLORE ALL</a>
+            </div>
+            
+            <div class="potu-portfolio-masonry">
+                <a href="projet-detail.html?id=coworking" class="potu-port-item w-2 h-2 reveal-scale">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80" alt="Espace Coworking Moderne">
+                    <div class="potu-port-overlay">
+                        <span class="potu-port-cat">Commercial</span>
+                        <h3 class="potu-port-title">Espace Coworking</h3>
+                    </div>
+                </a>
+                <a href="projet-detail.html?id=villa" class="potu-port-item h-2 reveal-scale delay-200">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80" alt="Villa Contemporaine">
+                    <div class="potu-port-overlay">
+                        <span class="potu-port-cat">Résidentiel</span>
+                        <h3 class="potu-port-title">Villa de Luxe</h3>
+                    </div>
+                </a>
+                <a href="projet-detail.html?id=restaurant" class="potu-port-item h-2 reveal-scale delay-300">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Restaurant">
+                    <div class="potu-port-overlay">
+                        <span class="potu-port-cat">Hôtellerie</span>
+                        <h3 class="potu-port-title">Restaurant Gourmet</h3>
+                    </div>
+                </a>
+            </div>
         </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-compass-drafting"></i></div>
-                <h3>Architecture d'Intérieur</h3>
-                <p>Conception globale d'espaces résidentiels et hôteliers alliant esthétique raffinée et fonctionnalité
-                    optimale.</p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Étude de faisabilité</li>
-                    <li><i class="fa-solid fa-check"></i> Esquisses & Concepts</li>
-                    <li><i class="fa-solid fa-check"></i> Plans d'exécution</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                <h3>Conception 3D & Plans 2D</h3>
-                <p>Modélisations photoréalistes et plans techniques précis pour une immersion totale avant le début des
-                    travaux.</p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Rendus 3D photo-réels</li>
-                    <li><i class="fa-solid fa-check"></i> Animation vidéo 3D</li>
-                    <li><i class="fa-solid fa-check"></i> Plans techniques 2D</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-briefcase"></i></div>
-                <h3>Aménagement de Bureaux</h3>
-                <p>Espaces de travail collaboratifs et ergonomiques conçus pour booster la productivité et le bien-être.
-                </p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Space planning</li>
-                    <li><i class="fa-solid fa-check"></i> Ergonomie au travail</li>
-                    <li><i class="fa-solid fa-check"></i> Zones de coworking</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-shop"></i></div>
-                <h3>Agencement Commercial</h3>
-                <p>Design stratégique de boutiques et showrooms pour optimiser l'expérience client et valoriser votre
-                    marque.</p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Identité visuelle</li>
-                    <li><i class="fa-solid fa-check"></i> Merchandising</li>
-                    <li><i class="fa-solid fa-check"></i> Éclairage commercial</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-utensils"></i></div>
-                <h3>Hôtellerie & Restauration</h3>
-                <p>Concepts uniques pour cafés et restaurants, créant des ambiances mémorables qui fidélisent votre
-                    clientèle.</p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Concept bars & cafés</li>
-                    <li><i class="fa-solid fa-check"></i> Design de restaurant</li>
-                    <li><i class="fa-solid fa-check"></i> Décoration thématique</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-house-medical"></i></div>
-                <h3>Santé & Médical</h3>
-                <p>Agencement spécialisé de pharmacies et cabinets médicaux respectant les normes strictes et le confort
-                    des patients.</p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Cabinets médicaux</li>
-                    <li><i class="fa-solid fa-check"></i> Pharmacies & Cliniques</li>
-                    <li><i class="fa-solid fa-check"></i> Ergonomie médicale</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-couch"></i></div>
-                <h3>Mobilier & Décoration</h3>
-                <p>Sélection de matériaux nobles et création de mobilier sur mesure pour une identité visuelle
-                    exclusive.</p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Mobilier sur mesure</li>
-                    <li><i class="fa-solid fa-check"></i> Choix des matériaux</li>
-                    <li><i class="fa-solid fa-check"></i> Accessoirisation</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
-                <h3>Rénovation Clé en Main</h3>
-                <p>Prise en charge totale du chantier, du gros œuvre aux finitions, avec une garantie de qualité et de
-                    délais.</p>
-                <ul class="service-list">
-                    <li><i class="fa-solid fa-check"></i> Suivi de chantier</li>
-                    <li><i class="fa-solid fa-check"></i> Gros œuvre & Finition</li>
-                    <li><i class="fa-solid fa-check"></i> Coordination complète</li>
-                </ul>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="yara-home-contact">
+        <div class="potu-container">
+            <div class="yara-contact-flex">
+                <div class="yara-contact-info-side reveal-left">
+                    <h2 class="yara-contact-title">Un projet en tête ?<br><span>Parlons-en</span></h2>
+                    <p class="yara-contact-desc">Contactez notre équipe pour des réponses rapides et précises à vos questions.</p>
+                    
+                    <div class="yara-info-item">
+                        <h4>Adresse</h4>
+                        <p>Fes, Maroc, ETG5 Bureau 33, 75 Rue Al Hoceima</p>
+                    </div>
+                    <div class="yara-info-item">
+                        <h4>Téléphone</h4>
+                        <p>+212 07 79 64 45 02</p>
+                    </div>
+                    <div class="yara-info-item">
+                        <h4>Email</h4>
+                        <p>contact@yaratech.ma</p>
+                    </div>
+                </div>
+                
+                <div class="yara-contact-form-side reveal-right">
+                    <div class="yara-form-box">
+                        <form id="home-contact-form">
+                            <div class="yara-form-row">
+                                <input type="text" placeholder="Votre Nom" required>
+                                <input type="email" placeholder="Votre Email" required>
+                            </div>
+                            <div style="margin-top: 20px;">
+                                <input type="text" placeholder="Sujet" required>
+                            </div>
+                            <textarea placeholder="Écrivez votre message ici" rows="5" required></textarea>
+                            <button type="submit" class="yara-submit-btn">ENVOYER LE MESSAGE <i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -370,105 +387,42 @@
 
 
 
-
-
-    <section id="contact">
-        <div class="section-title">
-            <h2>Discutons de votre projet</h2>
-            <p>Remplissez le formulaire ci-dessous et notre équipe vous rappellera dans les 24h.</p>
-        </div>
-        <!-- Formulaire simplifié pour la démo -->
-        <div class="contact-container">
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">Nom Complet</label>
-                    <input type="text" id="name" name="name" placeholder="Votre nom" required>
-                    <span class="error-message">Veuillez entrer votre nom.</span>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
-                    <span class="error-message">Veuillez entrer un email valide.</span>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Décrivez votre projet"
-                        required></textarea>
-                    <span class="error-message">Veuillez entrer votre message.</span>
-                </div>
-                <button type="submit" class="cta-button" id="submit-btn">
-                    <span class="btn-text">Envoyer la demande</span>
-                    <span class="loader"></span>
-                </button>
-            </form>
-            <div id="form-success" class="form-success-msg">
-                <i class="fa-solid fa-circle-check"></i>
-                <h3>Merci !</h3>
-                <p>Votre demande a été envoyée avec succès. Notre équipe vous contactera sous 24h.</p>
-                <button type="button" class="cta-button" onclick="resetForm()">Nouveau message</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="partners">
-        <div class="section-title">
-            <h2>Ils nous font confiance</h2>
-            <p>Collaborations prestigieuses et partenariats durables.</p>
-        </div>
-        <div class="partners-slider">
-            <div class="partners-track">
-                <div class="partner-logo"><img src="site web btp_files/winxo-logo-png_seeklogo-315522.png" alt="Winxo">
-                </div>
-                <div class="partner-logo"><img src="site web btp_files/marglory-logo.webp" alt="Marglory"></div>
-                <div class="partner-logo"><img src="site web btp_files/dokeos_logo.svg" alt="Dokeos"></div>
-                <div class="partner-logo"><img src="site web btp_files/still-logo.svg" alt="Still"></div>
-                <div class="partner-logo"><img src="site web btp_files/logo2.png" alt="Partner"></div>
-                <!-- Duplicate for seamless scroll -->
-                <div class="partner-logo"><img src="site web btp_files/winxo-logo-png_seeklogo-315522.png" alt="Winxo">
-                </div>
-                <div class="partner-logo"><img src="site web btp_files/marglory-logo.webp" alt="Marglory"></div>
-                <div class="partner-logo"><img src="site web btp_files/dokeos_logo.svg" alt="Dokeos"></div>
-                <div class="partner-logo"><img src="site web btp_files/still-logo.svg" alt="Still"></div>
-                <div class="partner-logo"><img src="site web btp_files/logo2.png" alt="Partner"></div>
-            </div>
-        </div>
-    </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-info">
-                <h3>YARATECH<span>.</span></h3>
-                <p>Expertise en aménagement sur mesure - Études 3D haute fidélité - Gestion de projet de bout en bout.
-                </p>
+        <div class="potu-container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>YARATECH<span>.</span></h3>
+                    <p>Expertise en aménagement sur mesure - Études 3D haute fidélité - Gestion de projet de bout en bout.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> Fes, Maroc, ETG5 Bureau 33, 75 Rue Al Hoceima, Fès 30000</li>
+                        <li><i class="fa-solid fa-envelope"></i> contact@yaratech.ma</li>
+                        <li><i class="fa-solid fa-phone"></i> +212 07 79 64 45 02</li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Contact</h4>
-                <ul>
-                    <li><i class="fa-solid fa-location-dot"></i> Fes, Maroc,ETG5 Bureau 33, 75 Rue Al Hoceima, Fès 30000
-                    </li>
-                    <li><i class="fa-solid fa-envelope"></i> contact@yaratech.ma</li>
-                    <li><i class="fa-solid fa-phone"></i> +212 06 61 67 80 47
-                    </li>
-                </ul>
+            <div class="footer-bottom">
+                &copy; 2026 Yaratech. Tous droits réservés.
             </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 Yaratech. Tous droits réservés.
         </div>
     </footer>
 
-    <div class="floating-actions">
-        <a href="https://wa.me/2120661678047
-" class="float-btn whatsapp" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span class="pulse"></span>
-        </a>
-        <a href="#accueil" class="float-btn back-to-top" id="backToTop">
-            <i class="fa-solid fa-chevron-up"></i>
-        </a>
-    </div>
+    <script>
+        document.getElementById('home-contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = this.querySelector('input[placeholder="Votre Nom"]').value;
+            const email = this.querySelector('input[placeholder="Votre Email"]').value;
+            const subject = this.querySelector('input[placeholder="Sujet"]').value;
+            const message = this.querySelector('textarea').value;
 
+            const whatsappMessage = `*Nouveau Message Contact (Accueil) - Yaratech*\n\n*Nom :* ${name}\n*Email :* ${email}\n*Sujet :* ${subject}\n*Message :*\n${message}`;
+            const whatsappURL = `https://wa.me/212779644502?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
     <script src="script.js"></script>
 </body>
-
 </html>

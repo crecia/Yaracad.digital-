@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Services - Yaratech</title>
+    <title>Contact - Yaratech</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <style>
@@ -16,13 +15,8 @@
             max-width: 1400px;
             margin: 0 auto;
         }
-        .services-hero.reveal-active h1 {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.8s ease;
-        }
         .services-hero .tagline {
-            color: #e6a756;
+            color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 600;
@@ -34,18 +28,122 @@
             color: #1a1a1a;
             margin-bottom: 4rem;
             font-weight: 800;
-            opacity: 0;
-            transform: translateY(30px);
+        }
+
+        .services-display-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 0 5% 8rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .service-display-card {
+            position: relative;
+            height: 500px;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .service-display-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        .service-display-card:hover img {
+            transform: scale(1.1);
+        }
+        .service-display-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 50%, rgba(0,0,0,0.8));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2.5rem;
+            color: white;
+        }
+        .service-display-overlay h3 {
+            font-size: 1.8rem;
+            margin: 0;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        .trust-section {
+            padding: 8rem 5%;
+            background: #fff;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        .devis-btn-container {
+            margin-bottom: 6rem;
+        }
+        .devis-btn {
+            background: #e6a756;
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .devis-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(230, 167, 86, 0.3);
+        }
+        .trust-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .trust-content .tagline {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .trust-content h2 {
+            font-size: 3.5rem;
+            color: #1a1a1a;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+        .trust-content p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+        .features-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+        }
+        .feature-item i {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+        .feature-item h4 {
+            font-size: 1.3rem;
+            color: #1a1a1a;
         }
 
         @media (max-width: 1024px) {
+            .services-display-grid { grid-template-columns: 1fr 1fr; }
             .services-hero h1 { font-size: 3rem; }
+            .trust-content h2 { font-size: 2.5rem; }
         }
         @media (max-width: 768px) {
+            .services-display-grid { grid-template-columns: 1fr; }
+            .features-row { grid-template-columns: 1fr; gap: 3rem; }
             .services-hero { padding-top: 8rem; }
         }
     </style>
-
 </head>
 <body>
     
@@ -83,7 +181,6 @@
                             <div class="yara-mega-panel">
                                 <div class="yara-mega-content active" id="arch-mega">
                                     <a href="service-detail.html?id=prix-architecte">Prix architecte d'intérieur</a>
-                                
                                 </div>
                                 <div class="yara-mega-content" id="am-mega">
                                     <a href="service-detail.html?id=am-bureaux">Aménagement de bureaux</a>
@@ -130,99 +227,62 @@
     </header>
     
 
-    <main>
-        <section class="services-hero reveal">
-            <span class="tagline">VOTRE UNIVERS, NOTRE EXPERTISE</span>
-            <h1>Découvrez nos services</h1>
-        </section>
-
-        <section class="services-display-grid reveal">
-            <!-- 1. Architecte -->
-            <div class="service-display-card reveal-up" onclick="window.location.href='service-detail.html?id=archi'">
-                <img src="/assets/architec inter.webp" alt="Architecte d'intérieur">
-                <div class="service-display-overlay">
-                    <h3>Architecte d'intérieur</h3>
-                </div>
-            </div>
-
-            <!-- 2. Aménagement -->
-            <div class="service-display-card reveal-up delay-100" onclick="window.location.href='amenagement-interieur.html'">
-                <img src="/assets/amenagement inte.webp" alt="Aménagement intérieur">
-                <div class="service-display-overlay">
-                    <h3>Aménagement intérieur</h3>
-                </div>
-            </div>
-
-            <!-- 3. Conception 3D -->
-            <div class="service-display-card reveal-up delay-200" onclick="window.location.href='service-detail.html?id=conception3d'">
-                <img src="/assets/conception 3D.webp" alt="Conception plan 3D">
-                <div class="service-display-overlay">
-                    <h3>Conception plan 3D & 2D</h3>
-                </div>
-            </div>
-
-            <!-- 4. Design & Déco -->
-            <div class="service-display-card reveal-up delay-300" onclick="window.location.href='service-detail.html?id=design'">
-                <img src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=800&q=80" alt="Design d'intérieur">
-                <div class="service-display-overlay">
-                    <h3>Design & décoration d'intérieur</h3>
-                </div>
-            </div>
-        </section>
-
-        <section class="trust-section reveal">
-            <div class="devis-btn-container">
-                <a href="contact.html" class="avelar-orange-btn">Demandez un devis</a>
-            </div>
-            <div class="trust-content">
-                <span class="tagline">VOTRE UNIVERS, NOTRE EXPERTISE</span>
-                <h2>Confiez vos travaux au leader du marché</h2>
-                <p>Nous apprécions votre confiance. Nos clients nous choisissent ainsi que nos produits car ils savent que nous sommes les meilleurs.</p>
+            <main>
+        <section class="yara-contact-page">
+            <div class="yara-contact-left">
+                <h2>Un projet en tête ? <br><span>Parlons-en</span></h2>
+                <p class="desc">Contactez notre équipe pour des réponses rapides et précises à vos questions.</p>
                 
-                <div class="features-row">
-                    <div class="feature-item">
-                        <div class="feature-icon-box">
-                            <i class="fa-regular fa-file-lines"></i>
-                        </div>
-                        <h4>Travail de qualité</h4>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon-box">
-                            <i class="fa-regular fa-calendar-check"></i>
-                        </div>
-                        <h4>Livraison dans les délais</h4>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon-box">
-                            <i class="fa-regular fa-clock"></i>
-                        </div>
-                        <h4>Suivi complet du projet</h4>
-                    </div>
+                <div class="yara-contact-info">
+                    <h4>Adresse</h4>
+                    <p>Fes, Maroc, ETG5 Bureau 33, 75 Rue Al Hoceima</p>
+                    
+                    <h4>Téléphone</h4>
+                    <p>+212 07 79 64 45 02</p>
+                    
+                    <h4>Email</h4>
+                    <p>contact@yaratech.ma</p>
                 </div>
+
+                <a href="https://wa.me/212779644502" target="_blank" class="wa-float">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+            
+            <div class="yara-contact-right">
+                <form class="yara-contact-form">
+                    <div class="yara-form-row">
+                        <input type="text" placeholder="Votre Nom" required>
+                        <input type="email" placeholder="Votre Email" required>
+                    </div>
+                    <input type="text" placeholder="Sujet" required>
+                    <textarea placeholder="Écrivez votre message ici" required></textarea>
+                    
+                    <button type="submit" class="yara-contact-btn">
+                        ENVOYER LE MESSAGE <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
             </div>
         </section>
-
     </main>
 
     <footer>
-        <div class="potu-container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>YARATECH<span>.</span></h3>
-                    <p>Expertise en aménagement sur mesure - Études 3D haute fidélité - Gestion de projet de bout en bout.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><i class="fa-solid fa-location-dot"></i> Fes, Maroc, ETG5 Bureau 33, 75 Rue Al Hoceima, Fès 30000</li>
-                        <li><i class="fa-solid fa-envelope"></i> contact@yaratech.ma</li>
-                        <li><i class="fa-solid fa-phone"></i> +212 07 79 64 45 02</li>
-                    </ul>
-                </div>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>YARATECH<span>.</span></h3>
+                <p>Expertise en aménagement sur mesure - Études 3D haute fidélité - Gestion de projet de bout en bout.</p>
             </div>
-            <div class="footer-bottom">
-                &copy; 2026 Yaratech. Tous droits réservés.
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> Fes, Maroc, ETG5 Bureau 33, 75 Rue Al Hoceima, Fès 30000</li>
+                    <li><i class="fa-solid fa-envelope"></i> contact@yaratech.ma</li>
+                    <li><i class="fa-solid fa-phone"></i> +212 07 79 64 45 02</li>
+                </ul>
             </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Yaratech. Tous droits réservés.
         </div>
     </footer>
 
@@ -236,6 +296,19 @@
         </a>
     </div>
 
+    <script>
+        document.querySelector('.yara-contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = this.querySelector('input[placeholder="Votre Nom"]').value;
+            const email = this.querySelector('input[placeholder="Votre Email"]').value;
+            const subject = this.querySelector('input[placeholder="Sujet"]').value;
+            const message = this.querySelector('textarea').value;
+
+            const whatsappMessage = `*Nouveau Message Contact - Yaratech*\n\n*Nom :* ${name}\n*Email :* ${email}\n*Sujet :* ${subject}\n*Message :*\n${message}`;
+            const whatsappURL = `https://wa.me/212779644502?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

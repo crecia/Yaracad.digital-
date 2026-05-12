@@ -1,0 +1,101 @@
+/* --- YARATECH PREMIUM ANIMATIONS --- */
+
+:root {
+    --transition-reveal: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Reveal State: Fade & Slide Up */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: var(--transition-reveal);
+    will-change: transform, opacity;
+}
+
+/* Reveal State: Fade & Slide Left */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: var(--transition-reveal);
+    will-change: transform, opacity;
+}
+
+/* Reveal State: Fade & Slide Right */
+.reveal-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: var(--transition-reveal);
+    will-change: transform, opacity;
+}
+
+/* Reveal State: Scale Up */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: var(--transition-reveal);
+    will-change: transform, opacity;
+}
+
+/* Active State for all reveals */
+.reveal-active {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) !important;
+}
+
+/* Delays for staggered entries */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+
+/* Custom Cursor Follower */
+.cursor-follower {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    background: rgba(197, 160, 89, 0.15);
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1), 
+                height 0.3s cubic-bezier(0.23, 1, 0.32, 1), 
+                background 0.3s ease;
+    mix-blend-mode: difference;
+}
+
+/* When hovering interactive elements */
+.cursor-follower.active {
+    width: 60px;
+    height: 60px;
+    background: rgba(197, 160, 89, 0.1);
+    border-color: rgba(197, 160, 89, 0.8);
+}
+
+/* Parallax Box */
+.parallax-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-img {
+    will-change: transform;
+    transition: transform 0.2s linear;
+}
+
+/* Fluid Page Scroll Override */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Mobile Disable */
+@media (max-width: 991px) {
+    .cursor-follower { display: none; }
+    .reveal, .reveal-left, .reveal-right, .reveal-scale {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

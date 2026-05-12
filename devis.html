@@ -13,20 +13,86 @@
 </head>
 
 <body>
-    <header class="header-static">
-        <div class="header-content-custom">
-            <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">YARATECH<span>.</span></a></div>
-            <nav class="nav-center">
-                <a href="index.html#accueil">Accueil</a>
-                <a href="services.html">Services</a>
-                <a href="index.html#portfolio">Réalisations</a>
-            </nav>
-            <div class="header-right">
-                <a href="tel:+2120661678047" class="phone-number hide-mobile">+212 06 61 67 80 47</a>
-                <a href="index.html#contact" class="contact-pill-btn hide-mobile">Contact</a>
+    
+    <header id="header">
+        <div class="logo">
+            <a href="index.html">YARATECH<span class="yara-accent">.</span></a>
+            <span class="sub-logo">VOTRE UNIVERS NOTRE EXPERTISE</span>
+        </div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html#accueil">Accueil</a></li>
+                
+                <li class="has-dropdown">
+                    <a href="services.html">Services <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i></a>
+                    <div class="yara-mega-menu">
+                        <div class="yara-mega-explorer">
+                            <div class="yara-mega-nav">
+                                <a href="service-detail.html?id=archi" class="yara-mega-nav-item active" data-mega="arch-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Architecte d'intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="amenagement-interieur.html" class="yara-mega-nav-item" data-mega="am-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Aménagement intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="service-detail.html?id=conception3d" class="yara-mega-nav-item" data-mega="plan-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Conception plan 3D & 2D</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="service-detail.html?id=design" class="yara-mega-nav-item" data-mega="deco-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Design & décoration d'intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="yara-mega-panel">
+                                <div class="yara-mega-content active" id="arch-mega">
+                                    <a href="service-detail.html?id=prix-architecte">Prix architecte d'intérieur</a>
+                                </div>
+                                <div class="yara-mega-content" id="am-mega">
+                                    <a href="service-detail.html?id=am-bureaux">Aménagement de bureaux</a>
+                                    <a href="service-detail.html?id=am-magasin">Aménagement magasin & boutique</a>
+                                    <a href="service-detail.html?id=am-pharmacie">Aménagement pharmacie & parapharmacie</a>
+                                    <a href="service-detail.html?id=am-restaurant">Aménagement restaurant, café & bar</a>
+                                    <a href="service-detail.html?id=am-appartement">Aménagement appartement & studio</a>
+                                    <a href="service-detail.html?id=am-cuisine">Aménagement cuisine</a>
+                                    <a href="service-detail.html?id=am-sdb">Aménagement salle de bain</a>
+                                </div>
+                                <div class="yara-mega-content" id="plan-mega">
+                                    <a href="service-detail.html?id=plan-maison">Plan maison 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-appartement">Plan appartement 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-villa">Plan villa 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-cuisine">Conception cuisine 3D</a>
+                                </div>
+                                <div class="yara-mega-content" id="deco-mega">
+                                    <a href="service-detail.html?id=deco-interieur">Décoratrice & décorateur d'intérieur</a>
+                                    <a href="service-detail.html?id=deco-appartement">Décoration appartement</a>
+                                    <a href="service-detail.html?id=deco-coiffure">Décoration salon de coiffure</a>
+                                    <a href="service-detail.html?id=deco-medical">Décoration cabinet médical & dentaire</a>
+                                    <a href="service-detail.html?id=deco-bureau">Décoration bureau professionnel</a>
+                                    <a href="service-detail.html?id=deco-chambre">Décoration chambre</a>
+                                    <a href="service-detail.html?id=deco-salon">Décoration salon</a>
+                                    <a href="service-detail.html?id=deco-sdb">Décoration salle de bain</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li><a href="realisations.html">Réalisations</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="tel:+2120779644502" class="header-phone hide-mobile">+212 07 79 64 45 02</a>
+            <a href="contact.html" class="cta-button hide-mobile">Contact</a>
+            <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </header>
+    
 
     <section class="page-hero" style="padding: 6rem 5% 2rem; background: var(--white); text-align: center;">
         <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Étude de Projet Rapide</h1>
@@ -221,7 +287,7 @@
                 <ul>
                     <li><i class="fa-solid fa-location-dot"></i> Fes, Maroc, ETG5 Bureau 33, 75 Rue Al Hoceima, Fès 30000</li>
                     <li><i class="fa-solid fa-envelope"></i> contact@yaratech.ma</li>
-                    <li><i class="fa-solid fa-phone"></i> +212 06 61 67 80 47</li>
+                    <li><i class="fa-solid fa-phone"></i> +212 07 79 64 45 02</li>
                 </ul>
             </div>
         </div>
@@ -229,6 +295,57 @@
             &copy; 2026 Yaratech. Tous droits réservés.
         </div>
     </footer>
+
+    <div class="floating-actions">
+        <a href="https://wa.me/212779644502" class="float-btn whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="pulse"></span>
+        </a>
+        <a href="#header" class="float-btn back-to-top" id="backToTop">
+            <i class="fa-solid fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <script>
+        document.getElementById('multi-step-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            let message = "*Nouvelle demande de devis - Yaratech*\n\n";
+            
+            // Helper to get text from radio labels
+            const getLabelText = (name) => {
+                const selected = document.querySelector(`input[name="${name}"]:checked`);
+                if (selected) {
+                    return selected.closest('label').innerText.trim();
+                }
+                return "Non précisé";
+            };
+
+            message += "*Service :* " + getLabelText('service') + "\n";
+            message += "*Type de projet :* " + getLabelText('project_type') + "\n";
+            message += "*Stade du projet :* " + getLabelText('stage') + "\n";
+            message += "*Timing souhaité :* " + getLabelText('timing') + "\n";
+            message += "*Budget estimé :* " + getLabelText('budget') + "\n";
+            message += "*Moment pour rappel :* " + getLabelText('call_time') + "\n";
+            message += "*Superficie :* " + formData.get('surface') + "\n\n";
+            
+            message += "*--- Coordonnées Client ---*\n";
+            message += "*Nom :* " + formData.get('name') + "\n";
+            message += "*Téléphone :* " + formData.get('phone') + "\n";
+            message += "*Ville :* " + formData.get('city') + "\n";
+
+            // WhatsApp URL (Format international sans le +)
+            const whatsappNumber = "212779644502";
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Ouvrir dans un nouvel onglet
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

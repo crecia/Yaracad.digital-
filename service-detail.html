@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail du Service - Yaratech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c5a059;
+            --secondary: #1a1a1a;
+            --accent: #e6a756;
+            --text: #2d2d2d;
+            --text-muted: #666666;
+            --white: #ffffff;
+            --bg-light: #f8f6f2;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Hero */
+        .service-hero {
+            height: 70vh;
+            min-height: 500px;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #1a1a1a;
+        }
+        .service-hero img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.6;
+        }
+        .service-hero .container {
+            position: relative;
+            z-index: 3;
+            color: white;
+            padding: 0 5%;
+        }
+        .service-hero h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        .service-hero .breadcrumb {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .scroll-down-icon {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            color: white;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-15px) translateX(-50%); }
+            60% { transform: translateY(-7px) translateX(-50%); }
+        }
+
+        /* Content Sections */
+        .service-content-section {
+            padding: 6rem 5%;
+            background: #fff;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .service-content-section p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        .service-content-section h2 {
+            font-size: 3rem;
+            color: #1a1a1a;
+            margin: 4rem 0 2rem;
+            font-weight: 600;
+        }
+        
+        /* Drop Cap */
+        .drop-cap {
+            float: left;
+            font-size: 6rem;
+            line-height: 0.8;
+            padding-right: 15px;
+            padding-top: 10px;
+            color: #1a1a1a;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Blockquote */
+        .service-blockquote {
+            border-left: 2px solid var(--accent);
+            padding: 2rem 0 2rem 3rem;
+            margin: 4rem 0;
+            position: relative;
+        }
+        .service-blockquote::before {
+            content: '\201D';
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--accent);
+            position: absolute;
+            top: 0;
+            left: 3rem;
+            line-height: 1;
+        }
+        .service-blockquote p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-top: 2.5rem;
+            line-height: 1.5;
+        }
+
+        /* Dual Gallery */
+        .service-dual-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 4rem auto;
+            max-width: 1400px;
+            padding: 0 5%;
+        }
+        .service-dual-gallery img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        /* CTA Centers */
+        .service-cta-block {
+            text-align: center;
+            margin: 4rem 0;
+        }
+        .service-cta-block p {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        /* Highlight Orange Text */
+        .text-orange {
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        /* Principles List */
+        .service-principles-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+        .service-principles-list li {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .service-principles-list li i {
+            color: var(--accent);
+            margin-top: 6px;
+        }
+
+        /* FAQ Accordion */
+        .faq-accordion {
+            margin-top: 3rem;
+        }
+        .faq-item {
+            border-bottom: 1px solid #eee;
+        }
+        .faq-head {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 1.5rem 0;
+            cursor: pointer;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            transition: color 0.3s ease;
+        }
+        .faq-head:hover {
+            color: var(--accent);
+        }
+        .faq-head i {
+            font-size: 0.9rem;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-head i {
+            transform: rotate(90deg);
+        }
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.4s ease;
+            padding-left: 25px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .faq-item.active .faq-body {
+            max-height: 500px;
+            opacity: 1;
+            padding-bottom: 1.5rem;
+        }
+
+        /* Related Services Grid */
+        .related-services-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .related-service-card {
+            flex: 0 1 350px;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .service-dual-gallery img {
+            width: 100%;
+            max-width: 650px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            transition: transform 0.5s ease;
+        }
+        .service-dual-gallery img:hover {
+            transform: translateY(-10px);
+        }
+
+        @media (max-width: 1024px) {
+            .related-services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .related-service-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .related-service-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            transition: opacity 0.3s ease;
+        }
+        .related-service-card:hover img {
+            opacity: 0.8;
+        }
+        .related-service-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .service-hero h1 { font-size: 3rem; }
+            .service-dual-gallery { grid-template-columns: 1fr; }
+            .service-dual-gallery img { height: 400px; }
+            .service-content-section h2 { font-size: 2.2rem; }
+            .drop-cap { font-size: 4rem; }
+            .service-blockquote p { font-size: 1.2rem; }
+            .related-services-grid { grid-template-columns: 1fr; }
+            .related-service-card img { height: 300px; }
+            .faq-head { font-size: 1.1rem; }
+        }
+
+        /* Footer Black Mode */
+        footer {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            padding: 5rem 5% 2rem !important;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1300px;
+            margin: 0 auto;
+            gap: 4rem;
+        }
+        .footer-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+        .footer-info p {
+            color: #a0a0a0;
+            max-width: 400px;
+            line-height: 1.6;
+        }
+        .footer-links h4 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links ul li {
+            margin-bottom: 1rem;
+            color: #a0a0a0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .footer-bottom {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+    
+    <header id="header">
+        <div class="logo">
+            <a href="index.html">YARATECH<span class="yara-accent">.</span></a>
+            <span class="sub-logo">VOTRE UNIVERS NOTRE EXPERTISE</span>
+        </div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html#accueil">Accueil</a></li>
+                
+                <li class="has-dropdown">
+                    <a href="services.html">Services <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i></a>
+                    <div class="yara-mega-menu">
+                        <div class="yara-mega-explorer">
+                            <div class="yara-mega-nav">
+                                <a href="service-detail.html?id=archi" class="yara-mega-nav-item active" data-mega="arch-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Architecte d'intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="amenagement-interieur.html" class="yara-mega-nav-item" data-mega="am-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Aménagement intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="service-detail.html?id=conception3d" class="yara-mega-nav-item" data-mega="plan-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Conception plan 3D & 2D</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                                <a href="service-detail.html?id=design" class="yara-mega-nav-item" data-mega="deco-mega" style="text-decoration: none; color: inherit; display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                                    <span>Design & décoration d'intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <div class="yara-mega-panel">
+                                <div class="yara-mega-content active" id="arch-mega">
+                                    <a href="service-detail.html?id=prix-architecte">Prix architecte d'intérieur</a>
+                                </div>
+                                <div class="yara-mega-content" id="am-mega">
+                                    <a href="service-detail.html?id=am-bureaux">Aménagement de bureaux</a>
+                                    <a href="service-detail.html?id=am-magasin">Aménagement magasin & boutique</a>
+                                    <a href="service-detail.html?id=am-pharmacie">Aménagement pharmacie & parapharmacie</a>
+                                    <a href="service-detail.html?id=am-restaurant">Aménagement restaurant, café & bar</a>
+                                    <a href="service-detail.html?id=am-appartement">Aménagement appartement & studio</a>
+                                    <a href="service-detail.html?id=am-cuisine">Aménagement cuisine</a>
+                                    <a href="service-detail.html?id=am-sdb">Aménagement salle de bain</a>
+                                </div>
+                                <div class="yara-mega-content" id="plan-mega">
+                                    <a href="service-detail.html?id=plan-maison">Plan maison 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-appartement">Plan appartement 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-villa">Plan villa 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-cuisine">Conception cuisine 3D</a>
+                                </div>
+                                <div class="yara-mega-content" id="deco-mega">
+                                    <a href="service-detail.html?id=deco-interieur">Décoratrice & décorateur d'intérieur</a>
+                                    <a href="service-detail.html?id=deco-appartement">Décoration appartement</a>
+                                    <a href="service-detail.html?id=deco-coiffure">Décoration salon de coiffure</a>
+                                    <a href="service-detail.html?id=deco-medical">Décoration cabinet médical & dentaire</a>
+                                    <a href="service-detail.html?id=deco-bureau">Décoration bureau professionnel</a>
+                                    <a href="service-detail.html?id=deco-chambre">Décoration chambre</a>
+                                    <a href="service-detail.html?id=deco-salon">Décoration salon</a>
+                                    <a href="service-detail.html?id=deco-sdb">Décoration salle de bain</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li><a href="realisations.html">Réalisations</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="tel:+2120779644502" class="header-phone hide-mobile">+212 07 79 64 45 02</a>
+            <a href="contact.html" class="cta-button hide-mobile">Contact</a>
+            <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+
+    <section class="service-hero">
+        <img id="hero-img" src="" alt="Service Hero">
+        <div class="container" style="max-width: 1300px; margin: 0 auto; width: 90%;">
+            <h1 id="service-title" style="color: white; font-size: 5rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -0.02em;"></h1>
+            <div class="breadcrumb" id="service-breadcrumb" style="font-size: 1.1rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">HOME / SERVICES / TITLE</div>
+        </div>
+        <div class="scroll-down-icon" style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 3; color: white; font-size: 1.5rem; animation: bounce 2s infinite;"><i class="fa-solid fa-chevron-down"></i></div>
+    </section>
+
+    <section class="service-content-section" style="padding: 6rem 5% 0; background: #fff; max-width: 1100px; margin: 0 auto; text-align: left;">
+        <div id="intro-html"></div>
+    </section>
+
+    <div class="service-dual-gallery" id="gallery-1" style="display: flex; justify-content: center; gap: 1.5rem; margin: 4rem auto; max-width: 1400px; padding: 0 5%; flex-wrap: wrap;">
+        <!-- Injected -->
+    </div>
+
+    <section class="service-content-section" style="padding: 2rem 5% 0; background: #fff; max-width: 1100px; margin: 0 auto; text-align: left;">
+        <h2 id="what-is-title" style="font-size: 2.8rem; color: #1a1a1a; margin: 0 0 2rem; font-weight: 600; letter-spacing: -0.02em;"></h2>
+        <div id="what-is-text"></div>
+    </section>
+
+    <section class="service-content-section" style="padding: 0 5%; background: #fff; max-width: 1100px; margin: 0 auto; text-align: left;">
+        <div class="service-blockquote" style="border-left: 2px solid var(--accent); padding: 2rem 0 2rem 4rem; margin: 4rem 0; position: relative;">
+            <p id="quote-text" style="font-size: 1.6rem; font-weight: 600; color: #1a1a1a; margin-top: 0; line-height: 1.5;"></p>
+        </div>
+        
+        <h2 id="why-title" style="font-size: 2.8rem; color: #1a1a1a; margin: 4rem 0 2rem; font-weight: 600; letter-spacing: -0.02em;"></h2>
+        <div id="why-text"></div>
+
+        <div class="service-cta-block" style="text-align: center; margin: 5rem 0;">
+            <p style="font-size: 1.5rem; font-weight: 600; color: #666; margin-bottom: 2rem; text-align: center;">Besoin d'un expert pour votre projet ?</p>
+            <a href="devis.html" class="avelar-orange-btn">Obtenez un devis en ligne</a>
+        </div>
+    </section>
+
+    <div class="service-dual-gallery" id="gallery-2" style="display: flex; justify-content: center; gap: 1.5rem; margin: 4rem auto; max-width: 1400px; padding: 0 5%; flex-wrap: wrap;">
+        <!-- Injected -->
+    </div>
+
+    <section class="service-content-section" style="padding-top: 2rem; padding-bottom: 0; background: #fff; max-width: 1100px; margin: 0 auto; text-align: left;">
+        <h2 id="approach-title" style="font-size: 2.8rem; color: #1a1a1a; margin: 0 0 2rem; font-weight: 600; letter-spacing: -0.02em;"></h2>
+        <div id="approach-text"></div>
+        
+        <h2 id="principles-title" style="font-size: 2.8rem; color: #1a1a1a; margin: 4rem 0 2rem; font-weight: 600; letter-spacing: -0.02em;">Nos principes d'intervention</h2>
+        <ul id="principles-list" class="service-principles-list">
+            <!-- Injected -->
+        </ul>
+
+        <h2 id="target-title" style="font-size: 2.8rem; color: #1a1a1a; margin: 4rem 0 2rem; font-weight: 600; letter-spacing: -0.02em;"></h2>
+        <div id="target-text"></div>
+
+        <div id="custom-section-container"></div>
+    </section>
+
+    <section class="service-content-section" style="padding-top: 4rem; padding-bottom: 0; background: #fff; max-width: 1100px; margin: 0 auto; text-align: left;">
+        <h2 id="faq-title" style="font-size: 2.8rem; color: #1a1a1a; margin: 0 0 2rem; font-weight: 600; letter-spacing: -0.02em;"></h2>
+        <div class="faq-accordion" id="faq-container">
+            <!-- Injected -->
+        </div>
+    </section>
+
+    <!-- Related Services Slider -->
+    <section class="yara-slider-section" style="background: #fff; padding-bottom: 10rem;">
+        <div class="yara-slider-container">
+            <div class="yara-slider-header">
+                <h2 id="related-title">Nos autres services</h2>
+            </div>
+            <div class="yara-slider-wrapper">
+                <div class="yara-slider-track-container">
+                    <div class="yara-slider-track" id="related-container">
+                        <!-- Injected -->
+                    </div>
+                </div>
+                <!-- Arrow Navigation Below -->
+                <div class="yara-slider-arrows">
+                    <button class="yara-slider-arrow yara-slider-prev"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="yara-slider-arrow yara-slider-next"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer style="margin-top: 0;">
+
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>YARATECH<span>.</span></h3>
+                <p>Expertise en aménagement sur mesure - Études 3D haute fidélité - Gestion de projet de bout en bout.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> Fes, Maroc, ETG5 Bureau 33, 75 Rue Al Hoceima, Fès 30000</li>
+                    <li><i class="fa-solid fa-envelope"></i> contact@yaratech.ma</li>
+                    <li><i class="fa-solid fa-phone"></i> +212 07 79 64 45 02</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Yaratech. Tous droits réservés.
+        </div>
+    </footer>
+
+    <div class="floating-actions">
+        <a href="https://wa.me/212779644502" class="float-btn whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="pulse"></span>
+        </a>
+        <a href="#header" class="float-btn back-to-top" id="backToTop">
+            <i class="fa-solid fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <script>
+        // Service Data with new structure
+        const servicesData = {
+            'archi': {
+                title: 'Architecte d\'intérieur',
+                breadcrumb: "ARCHITECTE D'INTÉRIEUR",
+                heroImg: '/assets/architec inter.webp',
+                introHtml: `<span class="drop-cap">F</span>aire appel à un <strong>architecte d'intérieur</strong> ne consiste pas uniquement à améliorer l'esthétique d'un lieu. Il s'agit avant tout de concevoir un espace fonctionnel, cohérent et durable, pensé pour vos usages réels, vos contraintes techniques et votre budget, tout en tenant compte du <span class="text-orange">prix d'un architecte d'intérieur au Maroc</span>. Chez <strong>Yaratech</strong>, nous accompagnons particuliers et professionnels dans des projets d'<span class="text-orange">architecture d'intérieur</span> structurés, clairs et maîtrisés.`,
+                gallery1: [
+                    'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80',
+                    'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80'
+                ],
+                whatIsTitle: "Qu'est-ce que l'architecture d'intérieur ?",
+                whatIsText: `<p>L'<strong>architecture intérieure</strong> est une discipline qui vise à repenser l'organisation d'un espace existant ou à concevoir un intérieur adapté à un usage précis, que ce soit avec un <span class="text-orange">architecte d'intérieur à Casablanca</span>, un <span class="text-orange">architecte d'intérieur à Rabat</span> ou un architecte d'intérieur à Marrakech.</p>
+                             <p>Contrairement à une simple décoration, elle intervient sur les volumes, la circulation, la lumière, les matériaux et l'ergonomie globale.</p>`,
+                quote: "Un architecte d'intérieur agit comme un conseiller technique et créatif, capable de transformer des contraintes en solutions concrètes, lisibles et durables.",
+                whyTitle: "Pourquoi faire appel à un architecte d'intérieur ?",
+                whyText: `<p>Un <strong>architecte d'intérieur</strong> agit comme un conseiller technique et créatif : il analyse vos besoins, anticipe les contraintes et transforme vos idées en solutions concrètes, lisibles et réalisables, tout en assurant un <span class="text-orange">aménagement intérieur clé en main</span> et en sécurisant le projet dès les premières étapes.</p>`,
+                gallery2: [
+                    'https://images.unsplash.com/photo-1556910103-1c02745a872f?w=800&q=80',
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80'
+                ],
+                approachTitle: "L'approche Yaratech en architecture d'intérieur",
+                approachText: `<p>Chaque projet d'<strong>architecture d'intérieur</strong> chez Yaratech commence par une analyse précise de vos objectifs, de vos contraintes et de vos priorités. Nous ne proposons pas de solutions standardisées : chaque espace est pensé sur mesure, en cohérence avec votre mode de vie ou votre activité, grâce à une conception de plans 3D et 2D précise et maîtrisée.</p>`,
+                principles: [
+                    "Analyse approfondie des usages et contraintes techniques",
+                    "Optimisation des volumes, de la circulation et de la lumière",
+                    "Conception de plans techniques et rendus 3D clairs",
+                    "Accompagnement cohérent avec le budget et le chantier"
+                ],
+                targetAudienceTitle: "Architecture d'intérieur pour particuliers et professionnels",
+                targetAudienceText: `<p>Nous intervenons sur des projets variés : appartements, villas, bureaux, commerces, restaurants et espaces professionnels. Chaque mission est pensée pour améliorer le confort, la fonctionnalité et l'esthétique du lieu, avec une véritable expertise en <span class="text-orange">design et décoration d'intérieur</span> au Maroc.</p>`,
+                faq: [
+                    { question: "À quel moment faut-il contacter un architecte d'intérieur ?", answer: "Il est conseillé de faire appel à un architecte d'intérieur le plus tôt possible, idéalement avant le début des travaux ou même avant l'achat d'un bien, pour évaluer son potentiel et anticiper les coûts." },
+                    { question: "Quelle est la différence entre architecte d'intérieur et décorateur d'intérieur ?", answer: "L'architecte d'intérieur intervient sur la structure de l'espace (cloisons, volumes, réseaux), tandis que le décorateur se concentre uniquement sur l'habillage esthétique (couleurs, mobilier, textiles)." },
+                    { question: "Proposez-vous des plans 2D et des rendus 3D ?", answer: "Oui, notre offre inclut la conception complète de plans techniques 2D et de modélisations 3D photoréalistes pour vous aider à vous projeter." },
+                    { question: "Intervenez-vous uniquement à Fes ?", answer: "Non, nous intervenons partout au Maroc (Casablanca,Rabat, Marrakech, Tanger, etc.) selon l'envergure du projet." },
+                    { question: "Combien coûte un architecte d'intérieur au Maroc ?", answer: "Le prix varie en fonction de la surface, de la complexité du projet et du niveau d'accompagnement souhaité. Nous proposons des devis sur-mesure après une première visite." }
+                ],
+                relatedServices: [
+                    { title: "Architecte d'intérieur", img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80", link: "service-detail.html?id=archi" }
+                ]
+            },
+            'amenagement': {
+                title: 'Aménagement intérieur',
+                breadcrumb: "AMÉNAGEMENT INTÉRIEUR",
+                heroImg: 'https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?w=1600&q=80',
+                introHtml: `<span class="drop-cap">L</span>'<strong>aménagement intérieur</strong> consiste à organiser un espace existant pour le rendre plus fonctionnel, plus confortable et mieux adapté à son usage réel. Contrairement à une simple décoration, il implique des choix structurants : organisation des volumes, circulation, rangements, éclairage et cohérence globale. Au Maroc, les <strong>travaux d’aménagement intérieur</strong> concernent aussi bien les logements que les espaces professionnels, notamment l’<a href="service-detail.html?id=am-bureaux" class="text-orange">Aménagement de bureaux</a> professionnels.
+                            <div style="margin-top: 3rem; text-align: center;">
+                                <p style="font-weight: 600; margin-bottom: 1.5rem; color: #666;">Le conseil est gratuit, comment je peux vous aider ?</p>
+                                <a href="contact.html" class="avelar-orange-btn" style="padding: 1.2rem 2.5rem; border-radius: 50px; text-decoration: none; display: inline-block;">Demander un conseil gratuit</a>
+                            </div>`,
+                gallery1: [
+                    'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80',
+                    'https://images.unsplash.com/photo-1618219944342-824e40a13285?w=800&q=80'
+                ],
+                whatIsTitle: "Aménagement intérieur au Maroc : une approche fonctionnelle et durable",
+                whatIsText: `<p>Chez <strong>Yaratech</strong>, nous concevons des projets d’<strong>aménagement intérieur au Maroc</strong> pensés pour répondre à des besoins concrets, avec une vision claire, des solutions durables et une maîtrise des coûts. Chaque espace est analysé dans sa globalité afin d’optimiser son potentiel sans transformations inutiles, notamment pour l’<a href="service-detail.html?id=am-magasin" class="text-orange">Aménagement magasin & boutique</a> et l’<a href="service-detail.html?id=am-sdb" class="text-orange">aménagement salle de bain moderne</a>.</p>`,
+                quote: "Un bon aménagement intérieur ne se voit pas toujours, mais il se ressent chaque jour dans l’usage, le confort et la fluidité des espaces.",
+                whyTitle: "Qu’est-ce que l’aménagement intérieur ?",
+                whyText: `<p>L’aménagement intérieur vise à exploiter intelligemment un espace sans nécessairement tout reconstruire. Il peut inclure la redistribution des pièces, l’optimisation des rangements, l’amélioration de la circulation, l’intégration de solutions sur mesure et l’adaptation de l’espace à de nouveaux usages, notamment pour l’<a href="service-detail.html?id=am-appartement" class="text-orange">Aménagement appartement & studio</a>.</p>
+                          <div style="text-align: center; margin-top: 3rem;">
+                              <p style="font-weight: 600; margin-bottom: 1.5rem; color: #666;">Besoin d’un devis pour votre projet d’aménagement intérieur ?</p>
+                              <a href="devis.html" class="avelar-orange-btn" style="padding: 1.2rem 2.5rem; border-radius: 50px; text-decoration: none; display: inline-block;">Obtenez un devis en ligne</a>
+                          </div>`,
+                gallery2: [
+                    'https://images.unsplash.com/photo-1616137422495-1e902b72174c?w=800&q=80',
+                    'https://images.unsplash.com/photo-1617806118233-18e1db207af6?w=800&q=80'
+                ],
+                approachTitle: "Travaux d’aménagement intérieur : quand sont-ils nécessaires ?",
+                approachText: `<p>Plusieurs situations peuvent justifier une intervention en aménagement intérieur :</p>`,
+                principles: [
+                    "Espace mal organisé ou peu fonctionnel",
+                    "Manque de rangements ou de clarté",
+                    "Adaptation à un nouvel usage (télétravail, commerce, bureau)",
+                    "Valorisation d’un bien avant location ou revente"
+                ],
+                targetAudienceTitle: "Aménagement et agencement intérieur",
+                targetAudienceText: `<p>L’<strong>agencement intérieur</strong> est une composante clé de l’aménagement. Il concerne la manière dont les éléments fixes ou sur mesure (cuisines, rangements, cloisons, mobilier intégré) s’organisent dans l’espace. Un bon agencement permet de gagner de la place, d’améliorer l’ergonomie et de rendre l’espace plus fluide à l’usage, notamment pour l’<a href="service-detail.html?id=am-cuisine" class="text-orange">aménagement cuisine sur mesure</a>, avec l’accompagnement d’un <a href="service-detail.html?id=archi" class="text-orange">Architecte d’intérieur à Casablanca</a>.</p>`,
+                faq: [
+                    { question: "Puis-je conserver mes meubles existants ?", answer: "Absolument. Nous pouvons intégrer vos meubles actuels dans le nouveau plan d'aménagement et vous suggérer des compléments si nécessaire." },
+                    { question: "Réalisez-vous des meubles sur mesure ?", answer: "Oui, nous concevons des rangements, bibliothèques et dressings sur mesure pour exploiter chaque recoin de votre espace." },
+                    { question: "Faites-vous l'aménagement de bureaux professionnels ?", answer: "Oui, le 'Space Planning' est l'une de nos expertises pour les entreprises." }
+                ],
+                relatedServices: [
+                    { title: "Aménagement de bureaux", img: "https://images.unsplash.com/photo-1497215728101-d56f51097721?w=600&q=80", link: "service-detail.html?id=am-bureaux" },
+                    { title: "Aménagement magasin & boutique", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80", link: "service-detail.html?id=am-magasin" },
+                    { title: "Aménagement restaurant, café & bar", img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80", link: "service-detail.html?id=am-restaurant" },
+                    { title: "Aménagement appartement & studio", img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80", link: "service-detail.html?id=am-appartement" },
+                    { title: "Aménagement cuisine", img: "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=600&q=80", link: "service-detail.html?id=am-cuisine" },
+                    { title: "Aménagement salle de bain", img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80", link: "service-detail.html?id=am-sdb" }
+                ]
+            },
+            'am-bureaux': {
+                title: 'Aménagement de bureaux & Espaces Pros',
+                breadcrumb: "AMÉNAGEMENT / BUREAUX PROFESSIONNELS",
+                heroImg: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80',
+                introHtml: `<span class="drop-cap">U</span>n espace de travail performant est un levier de croissance pour votre entreprise. L'<strong>aménagement de bureaux</strong> ne se limite pas à disposer des bureaux et des chaises ; il s'agit de créer un environnement qui favorise la productivité, le bien-être des collaborateurs et l'image de marque de votre société. Chez <strong>Yaratech</strong>, nous transformons vos plateaux vides ou vos locaux vieillissants en espaces de travail modernes, dynamiques et inspirants.`,
+                gallery1: [
+                    'https://images.unsplash.com/photo-1497215728101-d56f51097721?w=800&q=80',
+                    'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80'
+                ],
+                whatIsTitle: "Space Planning : Optimisez chaque mètre carré",
+                whatIsText: `<p>Le <strong>Space Planning</strong> est au cœur de notre démarche d'aménagement professionnel. Nous analysons vos flux de travail, vos besoins en confidentialité et vos espaces de collaboration pour concevoir un plan d'agencement fluide et efficace. Que vous optiez pour un open-space dynamique, des bureaux fermés ou un modèle de flex-office, nous adaptons chaque zone à sa fonction réelle.</p>`,
+                quote: "Le bureau de demain est un lieu de vie et d'échange. Son aménagement doit refléter la culture de votre entreprise tout en garantissant un confort acoustique et visuel optimal.",
+                whyTitle: "Nos solutions pour vos espaces professionnels",
+                whyText: `<p>Nous intervenons sur tous types d'espaces tertiaires : sièges sociaux, agences, espaces de coworking, cabinets médicaux ou showrooms. Notre expertise inclut le choix du mobilier ergonomique, la gestion de l'acoustique, l'éclairage circadien et l'intégration de technologies collaboratives pour un <span class="text-orange">aménagement intérieur clé en main</span>.</p>`,
+                gallery2: [
+                    'https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=800&q=80',
+                    'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80'
+                ],
+                approachTitle: "Un processus structuré pour votre sérénité",
+                approachText: `<p>Comme pour l'approche <strong>Avelar</strong>, nous suivons une méthodologie rigoureuse pour garantir la réussite de vos travaux d'aménagement :</p>`,
+                principles: [
+                    "<strong>1. Audit & Immersion :</strong> Compréhension de vos besoins et analyse technique des locaux.",
+                    "<strong>2. Conception 3D :</strong> Visualisation réaliste de vos futurs bureaux avant toute intervention.",
+                    "<strong>3. Planification :</strong> Estimation budgétaire précise et calendrier de réalisation optimisé.",
+                    "<strong>4. Suivi & Livraison :</strong> Coordination des travaux et installation du mobilier pour un résultat impeccable."
+                ],
+                targetAudienceTitle: "Design sur mesure pour entreprises exigeantes",
+                targetAudienceText: `<p>Notre pôle design travaille sur l'identité visuelle de vos locaux. Couleurs, matériaux, signalétique : chaque détail est pensé pour renforcer le sentiment d'appartenance de vos équipes et impressionner vos clients dès le hall d'accueil, avec une expertise reconnue en <span class="text-orange">design d'intérieur à Casablanca et Rabat</span>.</p>`,
+                faq: [
+                    { question: "Comment gérer l'acoustique dans un open-space ?", answer: "Nous utilisons des matériaux absorbants (panneaux acoustiques, moquettes techniques, plafonds suspendus) et des solutions de zonage intelligent pour réduire les nuisances sonores." },
+                    { question: "Le télétravail change-t-il l'aménagement des bureaux ?", answer: "Oui, nous concevons désormais des espaces plus flexibles avec davantage de zones de réunion hybrides et moins de bureaux fixes assignés (flex-office)." },
+                    { question: "Quels sont les délais pour un aménagement complet ?", answer: "Tout dépend de la surface, mais une étude complète prend généralement 2 à 3 semaines, suivies de la phase de travaux qui varie selon l'ampleur du projet." }
+                ],
+                relatedServices: [
+                    { title: "Architecture d'intérieur", img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80", link: "service-detail.html?id=archi" },
+                    { title: "Conception plan 3D & 2D", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80", link: "service-detail.html?id=conception3d" },
+                    { title: "Aménagement magasin", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80", link: "service-detail.html?id=am-magasin" }
+                ]
+            },
+            'conception3d': {
+                title: 'Conception plan 3D & 2D',
+                breadcrumb: "CONCEPTION 3D",
+                heroImg: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80',
+                introHtml: `<span class="drop-cap">L</span>a <strong>conception 3D</strong> est devenue l'outil indispensable pour sécuriser tout projet architectural ou d'aménagement. Difficile de se projeter avec de simples croquis ? Grâce à la modélisation photoréaliste, vous visualisez l'avant/après de votre espace avec une précision millimétrique. Chez <strong>Yaratech</strong>, nous maîtrisons les technologies de pointe pour donner vie à vos idées avant même le premier coup de marteau.`,
+                gallery1: [
+                    'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80',
+                    'https://images.unsplash.com/photo-1600607686527-6fb886090705?w=800&q=80'
+                ],
+                whatIsTitle: "Qu'est-ce que la modélisation 3D architecturale ?",
+                whatIsText: `<p>La <strong>modélisation 3D</strong> consiste à créer une représentation virtuelle détaillée de votre futur intérieur. Elle intègre les véritables matériaux, les éclairages réalistes (naturels et artificiels), ainsi que le mobilier sélectionné pour le projet.</p>
+                             <p>C'est un véritable jumeau numérique qui vous permet d'explorer votre futur chez-vous en haute définition.</p>`,
+                quote: "La visualisation 3D élimine les doutes et les erreurs de jugement : vous savez exactement à quoi ressemblera votre investissement.",
+                whyTitle: "Pourquoi exiger une conception 3D ?",
+                whyText: `<p>Une <strong>conception plan 3D & 2D</strong> vous offre une totale sérénité. Elle permet de tester différentes palettes de couleurs, de valider l'encombrement du mobilier et de vérifier l'harmonie globale du projet. C'est l'assurance d'éviter les déceptions esthétiques et les surcoûts liés à des changements d'avis sur chantier.</p>`,
+                gallery2: [
+                    'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80',
+                    'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80'
+                ],
+                approachTitle: "L'expertise 3D Yaratech",
+                approachText: `<p>Nos infographistes 3D travaillent en étroite collaboration avec nos architectes pour produire des visuels à la fois esthétiquement bluffants et techniquement exacts, garantissant que ce que vous voyez sur l'écran sera réalisable sur le terrain.</p>`,
+                principles: [
+                    "Modélisation précise basée sur des métrés exacts",
+                    "Rendus photoréalistes avec gestion avancée de la lumière",
+                    "Intégration des matériaux réels du projet",
+                    "Plans 2D techniques pour les artisans"
+                ],
+                targetAudienceTitle: "La 3D pour particuliers et promoteurs",
+                targetAudienceText: `<p>Que vous soyez un particulier souhaitant rénover son salon ou un promoteur immobilier ayant besoin de visuels attractifs pour la vente sur plan, notre pôle 3D répond à toutes les exigences.</p>`,
+                faq: [
+                    { question: "Quel est le délai pour réaliser un plan 3D ?", answer: "Cela dépend de la complexité de l'espace, mais il faut généralement compter entre 1 à 2 semaines pour des rendus complets et réalistes." },
+                    { question: "Puis-je demander des modifications sur la 3D ?", answer: "Oui, nos offres incluent un nombre défini d'allers-retours de modifications pour ajuster les couleurs ou le mobilier." },
+                    { question: "Faites-vous des visites virtuelles à 360° ?", answer: "Oui, sur demande, nous pouvons créer une immersion à 360° pour une projection totale." }
+                ],
+                relatedServices: [
+                    { title: "Plan maison 3D & 2D", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80", link: "service-detail.html?id=plan-maison" },
+                    { title: "Plan appartement 3D & 2D", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80", link: "service-detail.html?id=plan-appartement" },
+                    { title: "Plan villa 3D & 2D", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80", link: "service-detail.html?id=plan-villa" },
+                    { title: "Conception cuisine 3D", img: "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=600&q=80", link: "service-detail.html?id=plan-cuisine" }
+                ]
+            },
+            'design': {
+                title: 'Design & décoration d\'intérieur',
+                breadcrumb: "DESIGN & DÉCORATION",
+                heroImg: 'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=1600&q=80',
+                introHtml: `<span class="drop-cap">D</span>onner une âme à un espace, c'est toute la mission du <strong>design et de la décoration d'intérieur</strong>. Au-delà des considérations techniques, il s'agit d'insuffler une identité forte, de jouer avec les matières, les couleurs et la lumière pour susciter une émotion. Chez <strong>Yaratech</strong>, nos décorateurs subliment vos intérieurs en concevant des atmosphères uniques, chaleureuses et profondément personnelles.`,
+                gallery1: [
+                    'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=800&q=80',
+                    'https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=800&q=80'
+                ],
+                whatIsTitle: "Qu'est-ce que le design d'intérieur ?",
+                whatIsText: `<p>Le <strong>design d'intérieur</strong> se concentre sur l'habillage de l'espace. Il englobe le choix des revêtements de sol et muraux, la sélection des textiles (rideaux, tapis), la curation d'objets d'art et de luminaires, ainsi que le sourcing du mobilier design.</p>
+                             <p>C'est la touche finale qui vient parfaire le travail architectural et définir le style final de la pièce (contemporain, minimaliste, classique chic...).</p>`,
+                quote: "La décoration est l'art d'associer des éléments disparates pour créer une composition visuelle harmonieuse et intemporelle.",
+                whyTitle: "Pourquoi faire appel à un décorateur ?",
+                whyText: `<p>Un <strong>décorateur d'intérieur</strong> possède l'œil exercé pour assembler les couleurs et les textures sans risquer la faute de goût. Il a accès à des catalogues de fournisseurs professionnels et sait dénicher les pièces uniques qui feront toute la différence, vous faisant ainsi gagner un temps précieux.</p>`,
+                gallery2: [
+                    'https://images.unsplash.com/photo-1595515106969-1ce29566ff1c?w=800&q=80',
+                    'https://images.unsplash.com/photo-1600607687931-cebf58514629?w=800&q=80'
+                ],
+                approachTitle: "La touche esthétique Yaratech",
+                approachText: `<p>Nous créons des "moodboards" (planches tendances) détaillés pour valider l'orientation stylistique avec vous avant de procéder aux achats, assurant ainsi une cohérence esthétique absolue de l'entrée au salon.</p>`,
+                principles: [
+                    "Écoute de vos sensibilités esthétiques",
+                    "Création de planches tendances (Moodboards)",
+                    "Sélection rigoureuse de matériaux et mobiliers",
+                    "Mise en scène finale (Stylisme d'intérieur)"
+                ],
+                targetAudienceTitle: "Décoration pour résidences et commerces",
+                targetAudienceText: `<p>Nous apportons notre expertise décorative aussi bien pour des résidences privées en quête de caractère que pour des boutiques, hôtels et restaurants désirant créer une image de marque forte.</p>`,
+                faq: [
+                    { question: "M'accompagnez-vous pour l'achat du mobilier ?", answer: "Oui, nous pouvons réaliser le sourcing complet et vous accompagner en magasin ou gérer les commandes auprès de nos fournisseurs partenaires." },
+                    { question: "Quels styles de décoration proposez-vous ?", answer: "Nous n'avons pas de style préconçu. Nous nous adaptons à vos goûts : contemporain, scandinave, bohème, industriel, classique chic..." },
+                    { question: "Peut-on décorer une seule pièce ?", answer: "Bien sûr, nous pouvons intervenir sur la décoration d'un salon, d'une chambre parentale ou d'un hall d'accueil." }
+                ],
+                relatedServices: [
+                    { title: "Décoratrice & décorateur d'intérieur", img: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=600&q=80", link: "service-detail.html?id=deco-interieur" },
+                    { title: "Décoration appartement", img: "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=600&q=80", link: "service-detail.html?id=deco-appartement" },
+                    { title: "Décoration salon de coiffure", img: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80", link: "service-detail.html?id=deco-coiffure" },
+                    { title: "Décoration cabinet médical", img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80", link: "service-detail.html?id=deco-medical" },
+                    { title: "Décoration chambre", img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80", link: "service-detail.html?id=deco-chambre" },
+                    { title: "Décoration salon", img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=80", link: "service-detail.html?id=deco-salon" }
+                ]
+            },
+            'prix-architecte': {
+                title: 'Prix architecte d\'intérieur',
+                breadcrumb: "ARCHITECTE D'INTÉRIEUR / PRIX ARCHITECTE D'INTÉRIEUR",
+                heroImg: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&q=80',
+                introHtml: `<div class="intro-dropcap">
+                                <p>Comprendre le <strong>prix d'un architecte d'intérieur</strong> est essentiel dès le début de votre projet. Faire appel à un <span class="text-orange">Architecte d'intérieur</span> permet d'obtenir un accompagnement professionnel, que vous cherchiez un <strong>devis architecte</strong>, une estimation des <strong>honoraires</strong>, un tarif au m² ou un coût pour un plan 3D. Ce guide vous donne une vision claire, réaliste et professionnelle des paramètres qui influencent le prix.</p>
+                            </div>
+                            <div style="margin-top: 3rem; text-align: center;">
+                                <p style="font-weight: 600; margin-bottom: 1.5rem;">Le conseil est gratuit, comment je peux vous aider ?</p>
+                                <a href="contact.html" class="cta-primary" style="padding: 1.2rem 2.5rem; border-radius: 50px; text-decoration: none; display: inline-block; background: #e6a756; color: white; font-weight: 600;">Demander un conseil gratuit</a>
+                            </div>`,
+                gallery1: [
+                    'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80'
+                ],
+                whatIsTitle: "Prix architecte d'intérieur : tarifs, devis, coûts & honoraires",
+                whatIsText: `<p>Chez <strong>Yaratech</strong>, nous vous aidons à estimer le <strong>coût global</strong> de votre projet d'architecture d'intérieur — sans surprise, avec des options personnalisées selon vos besoins, votre type de bien et l'accompagnement souhaité.</p>`,
+                quote: "Chaque projet est unique. C’est pourquoi un devis architecte personnalisé est indispensable avant toute prise de décision.",
+                whyTitle: "Quels éléments influencent le prix d’un architecte d’intérieur ?",
+                whyText: `<ul class="service-principles-list" style="margin-top: 20px; margin-bottom: 30px;">
+                            <li><i class="fa-solid fa-check" style="color: #e6a756;"></i> <span><strong>La surface</strong> à concevoir ou à rénover</span></li>
+                            <li><i class="fa-solid fa-check" style="color: #e6a756;"></i> <span><strong>La nature du projet</strong> : aménagement, rénovation complète ou optimisation</span></li>
+                            <li><i class="fa-solid fa-check" style="color: #e6a756;"></i> <span><strong>La complexité technique</strong> : structure, contraintes, coordination</span></li>
+                            <li><i class="fa-solid fa-check" style="color: #e6a756;"></i> <span><strong>Le niveau de livrables</strong> : plans, rendus 3D, dossier technique</span></li>
+                         </ul>`,
+                gallery2: [
+                    'https://images.unsplash.com/photo-1556910103-1c02745a872f?w=800&q=80',
+                    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80'
+                ],
+                approachTitle: "Honoraires & devis : comment sont-ils calculés ?",
+                approachText: `<p>Contrairement à des prix fixes, les <strong>honoraires d’un architecte d’intérieur</strong> se basent le plus souvent sur :</p>`,
+                principles: [
+                    "Un <strong>forfait</strong> pour la conception et/ou les plans",
+                    "Un <strong>pourcentage</strong> du coût total des travaux",
+                    "Un <strong>tarif au m²</strong> pour certaines missions",
+                    "Un <strong>complément</strong> pour rendus 3D ou études approfondies"
+                ],
+                targetAudienceTitle: "Plans 3D & Rénovation : impact sur le tarif",
+                targetAudienceText: `<p>La production de <strong>plans architecte 3D</strong> augmente généralement le prix, car elle nécessite davantage de temps, de technicité et de précision. Cependant, elle reste un excellent investissement : la réalisation d'un <a href="service-detail.html?id=conception3d" style="color: #e6a756; text-decoration: none;">Plan maison 3D & 2D</a> permet de visualiser clairement le projet avant travaux et d'éviter de nombreuses erreurs de conception lors de l'aménagement.</p>
+                <h3 style="margin-top: 2rem; font-size: 1.8rem; font-weight: 600;">Architecte d’intérieur & rénovation</h3>
+                <p>Sur un projet de rénovation, l'architecte d’intérieur prend en compte : les contraintes structurelles existantes, la coordination des corps de métiers, la planification des étapes et l'optimisation des coûts, tout en intégrant une vision globale de <a href="service-detail.html?id=design" style="color: #e6a756; text-decoration: none;">Design & décoration d'intérieur</a> afin d'assurer la cohérence esthétique et fonctionnelle du projet. Le tarif peut être plus élevé qu'un projet simple, mais il apporte une meilleure maîtrise de l'ensemble du chantier.</p>
+                <div style="text-align: center; margin-top: 4rem; padding: 3rem; background: #fdfaf7; border-radius: 20px;">
+                    <p style="font-weight: 600; margin-bottom: 1.5rem; font-size: 1.2rem;">Vous souhaitez estimer le prix de votre projet ?</p>
+                    <a href="devis.html" class="cta-primary" style="padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; display: inline-block; background: #e6a756; color: white; font-weight: 600; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(230, 167, 86, 0.2);">Obtenez une estimation maintenant</a>
+                </div>`,
+                faq: [
+                    { question: "Le premier rendez-vous est-il payant ?", answer: "Chez Yaratech, nous proposons souvent un premier échange ou une visite conseil pour cadrer votre projet et établir un devis précis." },
+                    { question: "Comment savoir si mon budget est suffisant pour mon projet ?", answer: "Lors de notre premier échange, nous analysons vos besoins et vos envies par rapport à la surface. Nous vous donnons une première estimation réaliste pour vous aider à calibrer votre investissement." },
+                    { question: "Quelle est la différence entre les honoraires au forfait et au pourcentage ?", answer: "Le forfait est idéal pour la phase de conception (plans, 3D). Le pourcentage (souvent entre 8% et 15%) s'applique généralement pour le suivi de chantier, car il dépend de la complexité et du montant total des travaux." },
+                    { question: "L'architecte d'intérieur peut-il m'aider à réduire les coûts des travaux ?", answer: "Absolument. Grâce à notre expertise technique et notre réseau d'artisans, nous optimisons chaque poste de dépense et évitons les erreurs de conception qui pourraient coûter cher à corriger." },
+                    { question: "Peut-on avoir un prix fixe par pièce ?", answer: "C'est possible pour des missions de décoration simple (e-design ou conseil), mais pour de l'architecture d'intérieur, le prix dépendra toujours de la complexité technique et des livrables demandés." },
+                    { question: "Proposez-vous des facilités de paiement ?", answer: "Oui, nos prestations sont généralement divisées en plusieurs étapes clés (acompte, étude, validation finale). Cela vous permet d'étaler le règlement selon l'avancement du projet." }
+                ],
+                relatedServices: [
+                    { title: "Architecte d'intérieur", img: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80", link: "service-detail.html?id=archi" },
+                    { title: "Conception plan 3D & 2D", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80", link: "service-detail.html?id=conception3d" }
+                ],
+                customSection: `<section class="service-why-box" style="background: #fdfaf7; padding: 8rem 5%; margin: 6rem auto; max-width: 1400px; border-radius: 40px; text-align: center;">
+                    <div style="max-width: 1000px; margin: 0 auto 5rem;">
+                        <h2 style="font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 2rem; color: #111;">Pourquoi faire appel à un <br><span style="color: #c5a059;">Architecte d'intérieur ?</span></h2>
+                        <div style="width: 60px; height: 3px; background: #c5a059; margin: 0 auto 3rem;"></div>
+                        <p style="color: #111; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 500;">Un architecte d'intérieur ne se limite pas à la décoration.</p>
+                        <p style="color: #666; font-size: 1.1rem; max-width: 800px; margin: 0 auto;">Il conçoit des espaces sur-mesure, esthétiques, fonctionnels et durables.</p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 5rem; text-align: left;">
+                        <!-- Card 1 -->
+                        <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03); display: flex; flex-direction: column;">
+                            <div style="background: #f2ece4; padding: 2.5rem 2rem; text-align: center;">
+                                <div style="font-size: 2.5rem; color: #111; margin-bottom: 1rem;"><i class="fa-solid fa-pen-ruler"></i></div>
+                                <h4 style="margin: 0; font-weight: 700; color: #111; font-size: 1.1rem;">CONSEIL DÉCO</h4>
+                                <p style="margin: 5px 0 0; font-size: 0.8rem; color: #666;">Idéal pour un relooking rapide</p>
+                            </div>
+                            <div style="padding: 2.5rem 2rem; flex-grow: 1;">
+                                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: #333; line-height: 1.6;">
+                                    <li style="margin-bottom: 1.2rem; display: flex; gap: 12px;"><i class="fa-solid fa-circle-check" style="color: #c5a059; margin-top: 5px;"></i> <span><strong>Un regard professionnel</strong> pour révéler le potentiel de votre intérieur.</span></li>
+                                    <li style="margin-bottom: 1.2rem; display: flex; gap: 12px;"><i class="fa-solid fa-circle-check" style="color: #c5a059; margin-top: 5px;"></i> <span><strong>Des idées adaptées</strong> à vos goûts, vos besoins et votre budget.</span></li>
+                                    <li style="margin-bottom: 1.2rem; display: flex; gap: 12px;"><i class="fa-solid fa-circle-check" style="color: #c5a059; margin-top: 5px;"></i> <span><strong>Des conseils concrets</strong> pour optimiser l'espace et les matériaux.</span></li>
+                                    <li style="margin-bottom: 0; display: flex; gap: 12px;"><i class="fa-solid fa-circle-check" style="color: #c5a059; margin-top: 5px;"></i> <span><strong>Accompagnement flexible</strong> pour des résultats immédiats.</span></li>
+                                </ul>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1.5rem 2rem; display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: #444; border-top: 1px solid #eee;">
+                                <i class="fa-regular fa-user" style="font-size: 1.2rem; color: #999;"></i>
+                                <span>Gagnez en clarté, harmonie et confort.</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03); display: flex; flex-direction: column; transform: translateY(-15px);">
+                            <div style="background: #c5a059; padding: 3rem 2rem; text-align: center; color: white;">
+                                <div style="font-size: 2.5rem; color: white; margin-bottom: 1rem;"><i class="fa-solid fa-map"></i></div>
+                                <h4 style="margin: 0; font-weight: 700; color: white; font-size: 1.1rem;">CONCEPTION</h4>
+                                <p style="margin: 5px 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.9);">Idéal pour un projet complet</p>
+                            </div>
+                            <div style="padding: 2.5rem 2rem; flex-grow: 1;">
+                                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: #333; line-height: 1.6;">
+                                    <li style="margin-bottom: 1.2rem; display: flex; gap: 12px;"><i class="fa-solid fa-circle-check" style="color: #c5a059; margin-top: 5px;"></i> <span><strong>Projet sur-mesure</strong> pensé dans les moindres détails.</span></li>
+                                    <li style="margin-bottom: 1.2rem; display: flex; gap: 12px;"><i class="fa-solid fa-circle-check" style="color: #c5a059; margin-top: 5px;"></i> <span><strong>Plans optimisés</strong> pour un agencement fluide et fonctionnel.</span></li>
+                                    <li style="margin-bottom: 1.2rem; display: flex; gap: 12px;"><i class="fa-solid fa-circle-check" style="color: #c5a059; margin-top: 5px;"></i> <span><strong>Matériaux & finitions</strong> sélectionnés pour allier esthétique et qualité.</span></li>
+                                    <li style="margin-bottom: 0; display: flex; gap: 12px;"><i class="fa-solid fa-circle-check" style="color: #c5a059; margin-top: 5px;"></i> <span><strong>Vision 3D réaliste</strong> pour vous projeter avant la réalisation.</span></li>
+                                </ul>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1.5rem 2rem; display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: #444; border-top: 1px solid #eee;">
+                                <i class="fa-regular fa-user" style="font-size: 1.2rem; color: #999;"></i>
+                                <span>Évitez les erreurs et gagnez du temps.</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.03); display: flex; flex-direction: column;">
+                            <div style="background: #111; padding: 2.5rem 2rem; text-align: center; color: white;">
+                                <div style="font-size: 2.5rem; color: white; margin-bottom: 1rem;"><i class="fa-solid fa-couch"></i></div>
+                                <h4 style="margin: 0; font-weight: 700; color: white; font-size: 1.1rem;">PRESTIGE</h4>
+                                <p style="margin: 5px 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.7);">Idéal pour un accompagnement total</p>
+                            </div>
+                            <div style="padding: 2.5rem 2rem; flex-grow: 1;">
+                                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: #333; line-height: 1.6;">
+                                    <li style="margin-bottom: 1.2rem; display: flex; gap: 12px;"><i class="fa-solid fa-circle-check" style="color: #c5a059; margin-top: 5px;"></i> <span><strong>Gestion complète</strong> de la conception à la livraison finale.</span></li>
+                                    <li style="margin-bottom: 1.2rem; display: flex; gap: 12px;"><i class="fa-solid fa-circle-check" style="color: #c5a059; margin-top: 5px;"></i> <span><strong>Réseau d'artisans</strong> qualifiés pour des finitions impeccables.</span></li>
+                                    <li style="margin-bottom: 1.2rem; display: flex; gap: 12px;"><i class="fa-solid fa-circle-check" style="color: #c5a059; margin-top: 5px;"></i> <span><strong>Suivi rigoureux</strong> pour respecter délais, budget et qualité.</span></li>
+                                    <li style="margin-bottom: 0; display: flex; gap: 12px;"><i class="fa-solid fa-circle-check" style="color: #c5a059; margin-top: 5px;"></i> <span><strong>Résultat d'exception</strong> à la hauteur de vos exigences.</span></li>
+                                </ul>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1.5rem 2rem; display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: #444; border-top: 1px solid #eee;">
+                                <i class="fa-regular fa-user" style="font-size: 1.2rem; color: #999;"></i>
+                                <span>Un intérieur clé en main, élégant et durable.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="max-width: 900px; margin: 0 auto; display: flex; align-items: center; background: #eee8e0; border-radius: 20px; padding: 2rem 3rem; gap: 3rem; text-align: left;">
+                        <div style="font-size: 2.5rem; color: #c5a059;"><i class="fa-solid fa-award"></i></div>
+                        <div>
+                            <h5 style="margin: 0 0 5px; font-weight: 700; color: #c5a059; font-size: 1rem; letter-spacing: 1px;">NOTRE ENGAGEMENT</h5>
+                            <p style="margin: 0; font-size: 1rem; color: #444; line-height: 1.5;">À chaque étape, nous plaçons vos besoins, votre style et votre satisfaction au cœur de notre démarche.</p>
+                        </div>
+                    </div>
+                </section>`
+            }
+        };
+
+        // Fallback for other items
+        const defaultService = servicesData['archi'];
+
+        // Get ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        let serviceId = urlParams.get('id') || 'archi';
+        
+        // Map sub-services to main templates
+        if (!servicesData[serviceId]) {
+            if (serviceId === 'prix-architecte') {
+                // Keep it as is
+            } else if (serviceId.includes('arch')) serviceId = 'archi';
+            else if (serviceId.includes('am-') || serviceId === 'bureaux' || serviceId === 'restaurant') serviceId = 'amenagement';
+            else if (serviceId.includes('plan-')) serviceId = 'conception3d';
+            else if (serviceId.includes('deco-') || serviceId === 'coiffure' || serviceId === 'design') serviceId = 'design';
+            else serviceId = 'archi';
+        }
+
+        const service = servicesData[serviceId] || defaultService;
+
+        if (service) {
+            document.getElementById('service-title').textContent = service.title;
+            document.getElementById('service-breadcrumb').textContent = `HOME / SERVICES / ${service.breadcrumb}`;
+            
+            const heroImg = document.getElementById('hero-img');
+            heroImg.style.opacity = '0';
+            heroImg.style.transition = 'opacity 1s ease';
+            heroImg.onload = () => heroImg.style.opacity = '0.6';
+            heroImg.onerror = () => {
+                heroImg.src = 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80';
+            };
+            heroImg.src = service.heroImg;
+
+            document.getElementById('intro-html').innerHTML = service.introHtml;
+            document.getElementById('what-is-title').textContent = service.whatIsTitle;
+            document.getElementById('what-is-text').innerHTML = service.whatIsText;
+            document.getElementById('quote-text').textContent = service.quote;
+            document.getElementById('why-title').textContent = service.whyTitle;
+            document.getElementById('why-text').innerHTML = service.whyText;
+            document.getElementById('approach-title').textContent = service.approachTitle;
+            document.getElementById('approach-text').innerHTML = service.approachText;
+
+            // Load gallery 1
+            const gallery1 = document.getElementById('gallery-1');
+            service.gallery1.forEach((imgSrc) => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = service.title;
+                gallery1.appendChild(img);
+            });
+
+            // Load gallery 2
+            const gallery2 = document.getElementById('gallery-2');
+            service.gallery2.forEach((imgSrc) => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = service.title;
+                gallery2.appendChild(img);
+            });
+
+            // Load Custom Section
+            const customSectionContainer = document.getElementById('custom-section-container');
+            if (customSectionContainer && service.customSection) {
+                customSectionContainer.innerHTML = service.customSection;
+            }
+
+            // Load Principles
+            const principlesList = document.getElementById('principles-list');
+            if (service.principles) {
+                service.principles.forEach(principle => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<i class="fa-solid fa-check"></i> <span>${principle}</span>`;
+                    principlesList.appendChild(li);
+                });
+            }
+
+            // Load Target Audience
+            document.getElementById('target-title').textContent = service.targetAudienceTitle;
+            document.getElementById('target-text').innerHTML = service.targetAudienceText;
+
+            // Load FAQ
+            document.getElementById('faq-title').textContent = `FAQ - ${service.title}`;
+            const faqContainer = document.getElementById('faq-container');
+            if (service.faq) {
+                service.faq.forEach((item, index) => {
+                    const faqItem = document.createElement('div');
+                    faqItem.className = 'faq-item';
+                    faqItem.innerHTML = `
+                        <div class="faq-head">
+                            <i class="fa-solid fa-caret-right"></i>
+                            ${item.question}
+                        </div>
+                        <div class="faq-body">
+                            ${item.answer}
+                        </div>
+                    `;
+                    faqContainer.appendChild(faqItem);
+                });
+                
+                // Add accordion logic
+                document.querySelectorAll('.faq-head').forEach(head => {
+                    head.addEventListener('click', function() {
+                        const item = this.parentElement;
+                        const body = this.nextElementSibling;
+                        const isOpen = item.classList.contains('active');
+                        
+                        // Toggle current
+                        if (isOpen) {
+                            item.classList.remove('active');
+                        } else {
+                            // Close others
+                            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                            item.classList.add('active');
+                        }
+                    });
+                });
+            }
+
+            // Load Related Services
+            const relatedContainer = document.getElementById('related-container');
+            if (service.relatedServices) {
+                service.relatedServices.forEach(item => {
+                    const card = document.createElement('a');
+                    card.href = item.link;
+                    card.className = 'yara-slider-item';
+                    card.innerHTML = `
+                        <div class="yara-slider-img">
+                            <img src="${item.img}" alt="${item.title}">
+                        </div>
+                        <h3>${item.title}</h3>
+                    `;
+                    relatedContainer.appendChild(card);
+                });
+                
+                // Re-init slider after injection (pass specific section)
+                const sliderSection = document.querySelector('.yara-slider-section');
+                if (sliderSection && typeof initYaraSliderSection === 'function') {
+                    initYaraSliderSection(sliderSection);
+                }
+            }
+
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

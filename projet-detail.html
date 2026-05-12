@@ -9,19 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #c5a059;
-            --secondary: #1a1a1a;
-            --accent: #f8f8f8;
-            --text: #ffffff;
-            --text-muted: #a0a0a0;
+            --accent: #e6a756;
+            --text: #2d2d2d;
+            --text-muted: #666666;
             --white: #ffffff;
         }
 
         body {
-            background-color: var(--secondary);
+            background-color: #ffffff;
             color: var(--text);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Outfit', sans-serif;
             margin: 0;
+            line-height: 1.7;
         }
         .project-hero {
             height: 80vh;
@@ -62,34 +61,42 @@
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 4rem;
-            margin-top: -10rem;
-            position: relative;
-            z-index: 10;
-            padding: 0 5%;
+            padding: 6rem 5% 0;
+            max-width: 1300px;
+            margin: 0 auto;
         }
         .info-card {
-            background: var(--white);
-            padding: 4rem;
-            border-radius: 15px;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.2);
-            color: var(--secondary);
-            min-height: 400px;
+            background: #fff;
+            color: var(--text);
+        }
+        .info-card h2 {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin: 0 0 1.5rem;
+            font-weight: 600;
+        }
+        .info-card p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 3rem;
         }
         .sidebar-card {
-            background: var(--primary);
-            color: var(--white);
+            background: #1a1a1a;
+            color: #ffffff;
             padding: 3rem;
-            border-radius: 15px;
+            border-radius: 4px;
             height: fit-content;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 100px;
         }
         .sidebar-card h4 {
             color: var(--accent);
             margin-bottom: 2rem;
-            font-size: 1.3rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            letter-spacing: 3px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
             padding-bottom: 1rem;
         }
         .sidebar-card ul {
@@ -100,54 +107,66 @@
             margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
-            gap: 1.2rem;
-            font-size: 1.1rem;
+            gap: 1rem;
+            font-size: 1rem;
+            color: #ccc;
         }
         .sidebar-card ul li i {
             color: var(--accent);
+            font-size: 0.85rem;
+        }
+        .sidebar-cta {
+            display: block;
+            margin-top: 3rem;
+            background: var(--accent);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .sidebar-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(230,167,86,0.35);
         }
         .project-gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
+            gap: 1.5rem;
             margin-top: 5rem;
-            margin-bottom: 4rem; /* Gap for mobile */
         }
         .gallery-item {
             height: 450px;
-            border-radius: 12px;
+            border-radius: 4px;
             overflow: hidden;
             background: #eee;
-            position: relative;
         }
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
-            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+            transition: transform 0.8s ease, opacity 0.5s ease;
             opacity: 0;
         }
-        .gallery-item img.loaded {
-            opacity: 1;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
+        .gallery-item img.loaded { opacity: 1; }
+        .gallery-item:hover img { transform: scale(1.06); }
         .gallery-full {
             grid-column: span 2;
-            height: 600px;
+            height: 550px;
         }
         @media (max-width: 1024px) {
-            .project-info-grid {
-                grid-template-columns: 1fr;
-                margin-top: 0;
-                padding-top: 4rem;
-            }
-            .nav-center { display: none; }
+            .project-info-grid { grid-template-columns: 1fr; padding-top: 4rem; }
+            .sidebar-card { position: static; }
             .project-hero { height: 60vh; min-height: 400px; }
-            .gallery-item { height: 350px; }
-            .gallery-full { height: 350px; grid-column: span 1; }
+            .gallery-item { height: 300px; }
+            .gallery-full { height: 300px; grid-column: span 1; }
+        }
+        @media (max-width: 768px) {
+            .project-hero h1 { font-size: 2.5rem !important; }
+            .project-gallery { grid-template-columns: 1fr; }
         }
 
         /* Footer Black Mode */
@@ -204,20 +223,84 @@
     </style>
 </head>
 <body>
-    <header class="header-static">
-        <div class="header-content-custom">
-            <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">YARATECH<span>.</span></a></div>
-            <nav class="nav-center">
-                <a href="index.html#accueil">Accueil</a>
-                <a href="services.html">Services</a>
-                <a href="index.html#portfolio">Réalisations</a>
-            </nav>
-            <div class="header-right">
-                <a href="tel:+2120661678047" class="phone-number hide-mobile">+212 06 61 67 80 47</a>
-                <a href="index.html#contact" class="contact-pill-btn hide-mobile">Contact</a>
+    
+    <header id="header">
+        <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">YARATECH<span>.</span></a></div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html#accueil">Accueil</a></li>
+                
+                <li class="has-dropdown">
+                    <a href="services.html">Services <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 5px;"></i></a>
+                    <div class="yara-mega-menu">
+                        <div class="yara-mega-explorer">
+                            <div class="yara-mega-nav">
+                                <div class="yara-mega-nav-item active" data-mega="arch-mega">
+                                    <span>Architecte d'intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="yara-mega-nav-item" data-mega="am-mega">
+                                    <span>Aménagement intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="yara-mega-nav-item" data-mega="plan-mega">
+                                    <span>Conception plan 3D & 2D</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="yara-mega-nav-item" data-mega="deco-mega">
+                                    <span>Design & décoration d'intérieur</span>
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                            <div class="yara-mega-panel">
+                                <div class="yara-mega-content active" id="arch-mega">
+                                    <a href="service-detail.html?id=prix-architecte">Prix architecte d'intérieur</a>
+                                
+                                </div>
+                                <div class="yara-mega-content" id="am-mega">
+                                    <a href="service-detail.html?id=am-bureaux">Aménagement de bureaux</a>
+                                    <a href="service-detail.html?id=am-magasin">Aménagement magasin & boutique</a>
+                                    <a href="service-detail.html?id=am-pharmacie">Aménagement pharmacie & parapharmacie</a>
+                                    <a href="service-detail.html?id=am-restaurant">Aménagement restaurant, café & bar</a>
+                                    <a href="service-detail.html?id=am-appartement">Aménagement appartement & studio</a>
+                                    <a href="service-detail.html?id=am-cuisine">Aménagement cuisine</a>
+                                    <a href="service-detail.html?id=am-sdb">Aménagement salle de bain</a>
+                                </div>
+                                <div class="yara-mega-content" id="plan-mega">
+                                    <a href="service-detail.html?id=plan-maison">Plan maison 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-appartement">Plan appartement 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-villa">Plan villa 3D & 2D</a>
+                                    <a href="service-detail.html?id=plan-cuisine">Conception cuisine 3D</a>
+                                </div>
+                                <div class="yara-mega-content" id="deco-mega">
+                                    <a href="service-detail.html?id=deco-interieur">Décoratrice & décorateur d'intérieur</a>
+                                    <a href="service-detail.html?id=deco-appartement">Décoration appartement</a>
+                                    <a href="service-detail.html?id=deco-coiffure">Décoration salon de coiffure</a>
+                                    <a href="service-detail.html?id=deco-medical">Décoration cabinet médical & dentaire</a>
+                                    <a href="service-detail.html?id=deco-bureau">Décoration bureau professionnel</a>
+                                    <a href="service-detail.html?id=deco-chambre">Décoration chambre</a>
+                                    <a href="service-detail.html?id=deco-salon">Décoration salon</a>
+                                    <a href="service-detail.html?id=deco-sdb">Décoration salle de bain</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li><a href="realisations.html">Réalisations</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <a href="tel:+2120779644502" class="header-phone hide-mobile">+212 07 79 64 45 02</a>
+            <a href="contact.html" class="cta-button hide-mobile">Contact</a>
+            <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </header>
+    
 
     <section class="project-hero">
         <img id="hero-img" src="" alt="Project Hero">
@@ -227,36 +310,35 @@
         </div>
     </section>
 
-    <section style="padding: 4rem 5% 8rem;">
-        <div class="project-info-grid container" style="max-width: 1300px; margin: 0 auto;">
+    <section style="padding-bottom: 8rem;">
+        <div class="project-info-grid">
             <div class="info-card">
-                <h2 style="margin-bottom: 2rem; font-size: 2.5rem;">La Demande</h2>
-                <p id="project-desc" style="font-size: 1.2rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 4rem;"></p>
-                
-                <h2 style="margin-bottom: 2rem; font-size: 2.5rem;">L'Objectif</h2>
-                <p id="project-objective" style="font-size: 1.2rem; line-height: 1.8; color: var(--text-muted);"></p>
-
-                <div class="project-gallery" id="project-gallery">
-                    <!-- Gallery items will be injected here -->
-                </div>
+                <h2>La Demande</h2>
+                <p id="project-desc"></p>
+                <h2>L'Objectif</h2>
+                <p id="project-objective"></p>
+                <div class="project-gallery" id="project-gallery"></div>
             </div>
-            
             <div class="sidebar-card">
                 <h4>Services Fournis</h4>
-                <ul id="project-services">
-                    <!-- Services will be injected here -->
-                </ul>
-                
-                <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                <ul id="project-services"></ul>
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.15);">
                     <h4>Partager</h4>
-                    <div style="display: flex; gap: 1.5rem; font-size: 1.5rem;">
-                        <a href="#" style="color: white;"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" style="color: white;"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" style="color: white;"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <div style="display: flex; gap: 1.5rem; font-size: 1.4rem; margin-top: 1rem;">
+                        <a href="#" style="color: #ccc; transition: color 0.3s;" onmouseover="this.style.color='#e6a756'" onmouseout="this.style.color='#ccc'"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" style="color: #ccc; transition: color 0.3s;" onmouseover="this.style.color='#e6a756'" onmouseout="this.style.color='#ccc'"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" style="color: #ccc; transition: color 0.3s;" onmouseover="this.style.color='#e6a756'" onmouseout="this.style.color='#ccc'"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
+                <a href="contact.html" class="sidebar-cta">Discuter de votre projet</a>
             </div>
         </div>
+    </section>
+
+    <section style="background: #f8f6f2; padding: 6rem 5%; text-align: center;">
+        <p style="font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 1rem;">PORTFOLIO</p>
+        <h2 style="font-size: 3rem; color: #1a1a1a; margin-bottom: 3rem; font-weight: 600;">Voir toutes nos réalisations</h2>
+        <a href="realisations.html" style="background: #1a1a1a; color: #fff; padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s;" onmouseover="this.style.background='#e6a756'" onmouseout="this.style.background='#1a1a1a'">Voir le portfolio complet</a>
     </section>
 
     <footer style="margin-top: 0;">
@@ -270,7 +352,7 @@
                 <ul>
                     <li><i class="fa-solid fa-location-dot"></i> Fes, Maroc, ETG5 Bureau 33, 75 Rue Al Hoceima, Fès 30000</li>
                     <li><i class="fa-solid fa-envelope"></i> contact@yaratech.ma</li>
-                    <li><i class="fa-solid fa-phone"></i> +212 06 61 67 80 47</li>
+                    <li><i class="fa-solid fa-phone"></i> +212 07 79 64 45 02</li>
                 </ul>
             </div>
         </div>
@@ -279,13 +361,14 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
     <script>
         // Project Data
         const projects = {
             'coworking': {
                 title: 'Espace Coworking',
                 category: 'Bureaux',
-                heroImg: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80',
+                heroImg: "/assets/bureau.webp",
                 desc: 'Transformation d\'un ancien plateau industriel en un espace de coworking dynamique favorisant la collaboration.',
                 objective: 'Créer un environnement de travail ergonomique avec des zones de concentration et d\'échanges.',
                 services: ['Architecture d\'intérieur', 'Plans 2D/3D', 'Conception de mobilier'],
@@ -376,7 +459,7 @@
             'spa': {
                 title: 'Espace Bien-être',
                 category: 'Loisirs',
-                heroImg: 'https://images.unsplash.com/photo-1540555700478-d17b0d58ba06?w=1200&q=80',
+                heroImg: "/assets/SPA.webp",
                 desc: 'Conception d\'un spa haut de gamme offrant une expérience sensorielle unique.',
                 objective: 'Favoriser la relaxation par l\'utilisation de matériaux naturels et d\'un éclairage doux.',
                 services: ['Aménagement SPA', 'Design sensoriel', 'Gestion technique'],
@@ -394,9 +477,9 @@
                 objective: 'Allier confidentialité et élégance dans un cadre professionnel de haut standing.',
                 services: ['Agencement de bureaux', 'Cloisonnement acoustique', 'Choix du mobilier'],
                 gallery: [
-                    'https://images.unsplash.com/photo-1589994965851-98f479c5567d?w=800&q=80',
-                    'https://images.unsplash.com/photo-1453723490680-8b9d7350ddb3?w=800&q=80',
-                    'https://images.unsplash.com/photo-1521791136064-7986c2959210?w=1200&q=80'
+                    "/assets/avocat 1.avif",
+                    "/assets/avocat 2.webp",
+                    "/assets/avocat 3.jpg" 
                 ]
             }
         };

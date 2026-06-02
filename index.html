@@ -15,10 +15,6 @@
 <body>
 
     <div class="floating-actions">
-        <a href="https://wa.me/212779644502" class="float-btn whatsapp" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span class="pulse"></span>
-        </a>
         <a href="#header" class="float-btn back-to-top" id="backToTop">
             <i class="fa-solid fa-chevron-up"></i>
         </a>
@@ -27,8 +23,8 @@
     
     <header id="header">
         <div class="logo">
-            <a href="index.html">YARATECH<span class="yara-accent">.</span></a>
-            <span class="sub-logo">VOTRE UNIVERS NOTRE EXPERTISE</span>
+            <a href="index.html"><span class="yara-accent">Yara</span>cad.Digital</a>
+            <span class="sub-logo">Ensemble, connectons votre univers à notre expertise</span>
         </div>
         <nav id="nav-menu">
             <ul>
@@ -94,7 +90,6 @@
             </ul>
         </nav>
         <div class="header-actions">
-            <a href="tel:+2120779644502" class="header-phone hide-mobile">+212 07 79 64 45 02</a>
             <a href="contact.html" class="cta-button hide-mobile">Contact</a>
             <div class="mobile-nav-toggle" id="mobile-nav-toggle">
                 <span></span>
@@ -243,7 +238,7 @@
     <section id="services" class="yara-home-services">
         <div class="potu-container">
             <div class="yara-services-header reveal">
-                <span class="yara-tagline">VOTRE UNIVERS, NOTRE EXPERTISE</span>
+                <span class="yara-tagline"> Ensemble, connectons votre univers à notre expertise</span>
                 <h2 class="yara-services-title">Découvrez nos services</h2>
             </div>
             
@@ -356,11 +351,11 @@
                     </div>
                     <div class="yara-info-item">
                         <h4>Téléphone</h4>
-                        <p>+212 07 79 64 45 02</p>
+                        <p><i class="fa-brands fa-whatsapp" style="margin-right: 8px; color: #c5a059;"></i>+212 0661678047<br><i class="fa-solid fa-phone" style="margin-right: 8px; margin-top: 10px; color: #c5a059;"></i>+212 0535944021</p>
                     </div>
                     <div class="yara-info-item">
                         <h4>Email</h4>
-                        <p>contact@yaratech.ma</p>
+                        <p>yaracad.agency@gmail.com</p>
                     </div>
                 </div>
                 
@@ -392,15 +387,16 @@
         <div class="potu-container">
             <div class="footer-content">
                 <div class="footer-info">
-                    <h3>YARATECH<span>.</span></h3>
+                    <h3><span class="yara-accent">Yara</span>cad.Digital</h3>
                     <p>Expertise en aménagement sur mesure - Études 3D haute fidélité - Gestion de projet de bout en bout.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Contact</h4>
                     <ul>
                         <li><i class="fa-solid fa-location-dot"></i> Fes, Maroc, ETG5 Bureau 33, 75 Rue Al Hoceima, Fès 30000</li>
-                        <li><i class="fa-solid fa-envelope"></i> contact@yaratech.ma</li>
-                        <li><i class="fa-solid fa-phone"></i> +212 07 79 64 45 02</li>
+                        <li><i class="fa-solid fa-envelope"></i> yaracad.agency@gmail.com</li>
+                        <li><i class="fa-brands fa-whatsapp"></i> +212 0661678047</li>
+                        <li><i class="fa-solid fa-phone"></i> +212 0535944021</li>
                     </ul>
                 </div>
             </div>
@@ -419,7 +415,7 @@
             const message = this.querySelector('textarea').value;
 
             const whatsappMessage = `*Nouveau Message Contact (Accueil) - Yaratech*\n\n*Nom :* ${name}\n*Email :* ${email}\n*Sujet :* ${subject}\n*Message :*\n${message}`;
-            const whatsappURL = `https://wa.me/212779644502?text=${encodeURIComponent(whatsappMessage)}`;
+            const whatsappURL = `https://wa.me/212661678047?text=${encodeURIComponent(whatsappMessage)}`;
             window.open(whatsappURL, '_blank');
         });
     </script>

@@ -8,12 +8,20 @@ const submitBtn = document.getElementById('submit-btn');
 const backToTop = document.getElementById('backToTop');
 
 // Header Scroll Effect & Back to Top Visibility
+let lastScrollY = window.scrollY;
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         header.classList.add('scrolled');
     } else {
         header.classList.remove('scrolled');
     }
+
+    if (window.scrollY > lastScrollY && window.scrollY > 150) {
+        header.classList.add('hidden');
+    } else {
+        header.classList.remove('hidden');
+    }
+    lastScrollY = window.scrollY;
 
     if (backToTop) {
         if (window.scrollY > 500) {
@@ -111,7 +119,9 @@ function initCursor() {
 }
 
 // Initializations
-document.addEventListener('DOMContentLoaded', () => {
+function initAll() {
+    if (window.appInitialized) return;
+    window.appInitialized = true;
     initAnimations();
     if (window.innerWidth > 991) initCursor();
     
@@ -174,14 +184,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize
     initYaraSlider();
     initAnimations();
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+} else {
+    initAll();
+}
 
 // --- UNIFIED SLIDER LOGIC (Infinite Loop) ---
 function initYaraSliderSection(slider) {
     const track = slider.querySelector('.yara-slider-track');
     const prevBtn = slider.querySelector('.yara-slider-prev');
     const nextBtn = slider.querySelector('.yara-slider-next');
-    if (!track || slider._sliderInitialized) return;
+    if (!track || slider._sliderInitialized || track.classList.contains('yara-slider-static')) return;
     slider._sliderInitialized = true;
 
     const originalItems = Array.from(track.querySelectorAll('.yara-slider-item'));
@@ -321,4 +337,210 @@ function initYaraSlider() {
     document.querySelectorAll('.yara-slider-section').forEach(slider => {
         initYaraSliderSection(slider);
     });
+}
+
+/* =========================================
+   ASSISTANT IA WIDGET (Option 1)
+========================================= */
+function initAssistant() {
+    // 1. Créer le HTML du assistant et l'injecter dans le body
+    const assistantHTML = `
+        <div id="yara-assistant-wrapper">
+            <button id="yara-assistant-btn" aria-label="Ouvrir le chat">
+                <i class="fa-solid fa-comment-dots bot-icon"></i>
+                <i class="fa-solid fa-xmark close-icon"></i>
+            </button>
+            <div id="yara-assistant-window">
+                <div class="yara-assistant-header">
+                    <div class="yara-assistant-avatar">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <div class="yara-assistant-title">
+                        <h4>Conseiller Yaracad</h4>
+                        <p>En ligne</p>
+                    </div>
+                </div>
+                <div class="yara-assistant-body" id="assistant-body">
+                    <!-- Les messages apparaitront ici -->
+                </div>
+                <div class="yara-assistant-footer">
+                    <input type="text" id="assistant-input" class="yara-assistant-input" placeholder="Écrivez votre message..." disabled>
+                    <button id="assistant-send" class="yara-assistant-send" disabled>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', assistantHTML);
+
+    // 2. Sélectionner les éléments
+    const wrapper = document.getElementById('yara-assistant-wrapper');
+    const btn = document.getElementById('yara-assistant-btn');
+    const body = document.getElementById('assistant-body');
+    const input = document.getElementById('assistant-input');
+    const sendBtn = document.getElementById('assistant-send');
+
+    // 3. Variables d'état
+    let currentStep = 0;
+    const userData = {
+        service: '',
+        budget: '',
+        name: ''
+    };
+    let isTyping = false;
+
+    // 4. Ouvrir/Fermer le chat
+    btn.addEventListener('click', () => {
+        const isOpen = wrapper.classList.toggle('open');
+        if (isOpen && currentStep === 0) {
+            // Lancer le premier message si c'est la première ouverture
+            setTimeout(startConversation, 500);
+        }
+    });
+
+    // 5. Fonctions d'affichage
+    function scrollToBottom() {
+        body.scrollTop = body.scrollHeight;
+    }
+
+    function showTyping() {
+        isTyping = true;
+        const typingHTML = `
+            <div class="typing-indicator" id="typing-indicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        `;
+        body.insertAdjacentHTML('beforeend', typingHTML);
+        scrollToBottom();
+    }
+
+    function hideTyping() {
+        isTyping = false;
+        const indicator = document.getElementById('typing-indicator');
+        if (indicator) indicator.remove();
+    }
+
+    function addBotMessage(text, options = null) {
+        showTyping();
+        setTimeout(() => {
+            hideTyping();
+            let msgHTML = `<div class="chat-msg bot">${text}</div>`;
+            if (options) {
+                let optionsHTML = '<div class="chat-options">';
+                options.forEach(opt => {
+                    optionsHTML += `<button class="chat-option-btn" data-value="${opt}">${opt}</button>`;
+                });
+                optionsHTML += '</div>';
+                msgHTML += optionsHTML;
+            }
+            body.insertAdjacentHTML('beforeend', msgHTML);
+            scrollToBottom();
+            
+            // Ajouter les écouteurs sur les boutons d'options
+            if (options) {
+                const btns = body.querySelectorAll('.chat-option-btn:not(.used)');
+                btns.forEach(b => {
+                    b.addEventListener('click', function() {
+                        if(isTyping) return;
+                        const val = this.getAttribute('data-value');
+                        // Désactiver tous les boutons actuels
+                        btns.forEach(btn => {
+                            btn.classList.add('used');
+                            btn.style.pointerEvents = 'none';
+                            btn.style.opacity = '0.7';
+                        });
+                        addUserMessage(val);
+                        handleUserInput(val, true);
+                    });
+                });
+            } else {
+                // S'il n'y a pas d'options, c'est au tour de l'utilisateur de taper
+                input.disabled = false;
+                sendBtn.disabled = false;
+                input.focus();
+            }
+        }, 1200); // Délai artificiel
+    }
+
+    function addUserMessage(text) {
+        const msgHTML = `<div class="chat-msg user">${text}</div>`;
+        body.insertAdjacentHTML('beforeend', msgHTML);
+        scrollToBottom();
+        input.value = '';
+        input.disabled = true;
+        sendBtn.disabled = true;
+    }
+
+    // 6. Logique de conversation (Le Scénario)
+    function startConversation() {
+        currentStep = 1;
+        addBotMessage("Bonjour ! 👋 Bienvenue chez Yaracad.Digital. Comment puis-je vous accompagner aujourd'hui ?", ["Aménagement", "Plan 3D", "Décoration", "Autre demande"]);
+    }
+
+    function handleUserInput(text, fromOption = false) {
+        if (!text.trim()) return;
+        
+        if (!fromOption) {
+            addUserMessage(text);
+        }
+
+        if (currentStep === 1) {
+            userData.service = text;
+            currentStep = 2;
+            addBotMessage("Excellent choix. Avez-vous une idée de la surface à traiter ou un budget estimé en tête ? (Vous pouvez répondre par texte)");
+        } 
+        else if (currentStep === 2) {
+            userData.budget = text;
+            currentStep = 3;
+            addBotMessage("C'est noté ! Pour que l'un de nos architectes puisse vous recontacter sur WhatsApp avec ces informations, quel est votre prénom ?");
+        }
+        else if (currentStep === 3) {
+            userData.name = text;
+            currentStep = 4;
+            
+            // Génération du lien WA
+            const waMessage = `*Nouveau contact via IA (Site Web)*\n\n*Nom:* ${userData.name}\n*Besoin:* ${userData.service}\n*Surface/Budget:* ${userData.budget}`;
+            const waUrl = `https://wa.me/212661678047?text=${encodeURIComponent(waMessage)}`;
+            
+            addBotMessage(`Merci ${userData.name} ! 🎉 Cliquez sur le bouton ci-dessous pour envoyer vos réponses directement sur notre WhatsApp officiel.`, [`Envoyer sur WhatsApp`]);
+            
+            // Gérer le clic final
+            setTimeout(() => {
+                const finalBtn = body.querySelectorAll('.chat-option-btn');
+                const lastBtn = finalBtn[finalBtn.length - 1];
+                if (lastBtn) {
+                    lastBtn.addEventListener('click', () => {
+                        window.open(waUrl, '_blank');
+                    });
+                }
+            }, 1300);
+        }
+    }
+
+    // 7. Événements de saisie
+    sendBtn.addEventListener('click', () => {
+        handleUserInput(input.value);
+    });
+
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            handleUserInput(input.value);
+        }
+    });
+}
+
+// Initialiser l'assistant (gestion Vercel / defer)
+function tryInitAssistant() {
+    if (!document.getElementById('yara-assistant-wrapper')) {
+        initAssistant();
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', tryInitAssistant);
+} else {
+    tryInitAssistant();
 }

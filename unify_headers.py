@@ -5,8 +5,8 @@ root_dir = "."
 
 perfect_header = r"""    <header id="header">
         <div class="logo">
-            <a href="index.html">YARATECH<span class="yara-accent">.</span></a>
-            <span class="sub-logo">VOTRE UNIVERS NOTRE EXPERTISE</span>
+            <a href="index.html"><span class="yara-accent">Yara</span>cad.Digital</a>
+            <span class="sub-logo">ENSEMBLE CONNECTONS VOTRE UNIVERS À NOTRE EXPERTISE</span>
         </div>
         <nav id="nav-menu">
             <ul>
@@ -72,7 +72,6 @@ perfect_header = r"""    <header id="header">
             </ul>
         </nav>
         <div class="header-actions">
-            <a href="tel:+2120779644502" class="header-phone hide-mobile">+212 07 79 64 45 02</a>
             <a href="contact.html" class="cta-button hide-mobile">Contact</a>
             <div class="mobile-nav-toggle" id="mobile-nav-toggle">
                 <span></span>

@@ -22,151 +22,168 @@
             margin: 0;
             line-height: 1.7;
         }
-        .project-hero {
-            height: 80vh;
-            min-height: 600px;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background: #1a1a1a;
+        /* Avelar Style Layout */
+        .project-header-section {
+            background-color: #f8f6f2;
+            padding: 10rem 5% 4rem;
+            text-align: left;
         }
-        .project-hero img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            z-index: 1;
-        }
-        .project-hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 2;
-        }
-        .project-hero .container {
-            position: relative;
-            z-index: 3;
-            width: 100%;
-        }
-        .project-info-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
-            padding: 6rem 5% 0;
-            max-width: 1300px;
+        .project-header-container {
+            max-width: 1200px;
             margin: 0 auto;
         }
-        .info-card {
-            background: #fff;
-            color: var(--text);
-        }
-        .info-card h2 {
-            font-size: 2rem;
+        #project-title {
+            font-size: 3.5rem;
             color: #1a1a1a;
-            margin: 0 0 1.5rem;
+            margin-bottom: 0;
             font-weight: 600;
+            line-height: 1.2;
+            font-family: 'Outfit', sans-serif;
         }
-        .info-card p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 3rem;
-        }
-        .sidebar-card {
-            background: #1a1a1a;
-            color: #ffffff;
-            padding: 3rem;
-            border-radius: 4px;
-            height: fit-content;
-            position: sticky;
-            top: 100px;
-        }
-        .sidebar-card h4 {
-            color: var(--accent);
-            margin-bottom: 2rem;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
-            padding-bottom: 1rem;
-        }
-        .sidebar-card ul {
-            list-style: none;
-            padding: 0;
-        }
-        .sidebar-card ul li {
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1rem;
-            color: #ccc;
-        }
-        .sidebar-card ul li i {
-            color: var(--accent);
-            font-size: 0.85rem;
-        }
-        .sidebar-cta {
-            display: block;
+        .project-hero-img-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
             margin-top: 3rem;
-            background: var(--accent);
+        }
+        #hero-img {
+            width: 100%;
+            max-height: 700px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .project-content-container {
+            max-width: 900px;
+            margin: 5rem auto;
+            padding: 0 5%;
+            color: #666;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+        .avelar-orange-btn {
+            background-color: #e6a756;
             color: #fff;
-            text-align: center;
-            padding: 1rem 2rem;
+            padding: 1.2rem 3rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
+            display: inline-block;
             transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(230, 167, 86, 0.2);
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
         }
-        .sidebar-cta:hover {
+        .avelar-orange-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(230,167,86,0.35);
+            box-shadow: 0 15px 30px rgba(230, 167, 86, 0.4);
+            background-color: #d89645;
+        }
+        .project-details-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 3rem 0;
+        }
+        .project-details-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        .section-title {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin: 4rem 0 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
         .project-gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 5rem;
+            gap: 20px;
+            margin: 4rem 0;
         }
-        .gallery-item {
-            height: 450px;
-            border-radius: 4px;
-            overflow: hidden;
-            background: #eee;
-        }
-        .gallery-item img {
+        .project-gallery img {
             width: 100%;
-            height: 100%;
+            height: 450px;
             object-fit: cover;
-            transition: transform 0.8s ease, opacity 0.5s ease;
-            opacity: 0;
+            border-radius: 4px;
+            transition: transform 0.5s ease;
         }
-        .gallery-item img.loaded { opacity: 1; }
-        .gallery-item:hover img { transform: scale(1.06); }
-        .gallery-full {
+        .project-gallery img:hover {
+            transform: scale(1.02);
+        }
+        .project-gallery .full-width {
             grid-column: span 2;
-            height: 550px;
+            height: 600px;
         }
-        @media (max-width: 1024px) {
-            .project-info-grid { grid-template-columns: 1fr; padding-top: 4rem; }
-            .sidebar-card { position: static; }
-            .project-hero { height: 60vh; min-height: 400px; }
-            .gallery-item { height: 300px; }
-            .gallery-full { height: 300px; grid-column: span 1; }
+        .cta-final-section {
+            background-color: #f8f6f2;
+            padding: 8rem 5%;
+        }
+        .ymal-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+        }
+        .ymal-title {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            font-weight: 500;
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+        }
+        .ymal-list-container {
+            border-top: 1px solid #ccc;
+            padding-top: 2rem;
+        }
+        .ymal-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .ymal-list li {
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+        .ymal-list li a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 1.4rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            flex: 1;
+            line-height: 1.4;
+        }
+        .ymal-list li a:hover {
+            color: #e6a756;
+        }
+        .ymal-meta {
+            color: #888;
+            font-size: 0.95rem;
+            text-align: right;
+            min-width: 140px;
+            line-height: 1.5;
         }
         @media (max-width: 768px) {
-            .project-hero h1 { font-size: 2.5rem !important; }
+            #project-title { font-size: 2.5rem; }
+            .project-header-section { padding-top: 8rem; }
             .project-gallery { grid-template-columns: 1fr; }
+            .project-gallery .full-width { grid-column: span 1; height: 350px; }
+            .project-gallery img { height: 300px; }
+            .ymal-container { grid-template-columns: 1fr; gap: 2rem; }
+            .ymal-list li { flex-direction: column; gap: 0.5rem; }
+            .ymal-meta { text-align: left; }
         }
 
         /* Footer Black Mode */
@@ -225,7 +242,7 @@
 <body>
     
     <header id="header">
-        <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">YARATECH<span>.</span></a></div>
+        <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;"><span class="yara-accent">Yara</span>cad.Digital</a></div>
         <nav id="nav-menu">
             <ul>
                 <li><a href="index.html#accueil">Accueil</a></li>
@@ -291,7 +308,6 @@
             </ul>
         </nav>
         <div class="header-actions">
-            <a href="tel:+2120779644502" class="header-phone hide-mobile">+212 07 79 64 45 02</a>
             <a href="contact.html" class="cta-button hide-mobile">Contact</a>
             <div class="mobile-nav-toggle" id="mobile-nav-toggle">
                 <span></span>
@@ -302,57 +318,74 @@
     </header>
     
 
-    <section class="project-hero">
+    <section class="project-header-section">
+        <div class="project-header-container">
+            <h1 id="project-title"></h1>
+        </div>
+    </section>
+
+    <div class="project-hero-img-container">
         <img id="hero-img" src="" alt="Project Hero">
-        <div class="container" style="max-width: 1300px; margin: 0 auto; width: 90%;">
-            <h1 id="project-title" style="color: white; font-size: 4rem; font-family: 'Playfair Display', serif;"></h1>
-            <p id="project-category" style="color: var(--accent); font-weight: 600; letter-spacing: 3px; text-transform: uppercase; margin-top: 1rem;"></p>
+    </div>
+
+    <section class="project-content-container">
+        <p id="project-desc"></p>
+        
+        <div style="text-align: center; margin: 4rem 0;">
+            <a href="devis.html" class="avelar-orange-btn">Demandez Votre étude</a>
         </div>
+
+        <h3 style="font-size: 1.3rem; color: #1a1a1a; margin-bottom: 1.5rem; font-weight: 600;">📌 Détails du projet</h3>
+        <ul id="project-details" class="project-details-list">
+            <!-- Injected via JS -->
+        </ul>
+
+        <div class="project-gallery" id="project-gallery"></div>
+
+        <div style="text-align: center; margin: 4rem 0;">
+            <a href="contact.html" class="avelar-orange-btn">Parler à un architecte d'intérieur</a>
+        </div>
+
+        <h2 class="section-title"><i class="fa-solid fa-bullseye" style="color: #e31837;"></i> Objectif du projet</h2>
+        <p id="project-objective"></p>
+
+        <h2 class="section-title">💻 Conception 3D</h2>
+        <p>La conception 3D a joué un rôle central dans ce projet. Elle a permis de tester différentes configurations d'agencement, d'anticiper le rendu final des matériaux et d'affiner les choix décoratifs.<br><br>Grâce aux vues 3D réalistes, le client a pu se projeter dans son futur intérieur et valider les moindres détails avant le début des travaux.</p>
+
+        <div style="text-align: center; margin: 4rem 0;">
+            <a href="service-detail.html?id=conception3d" class="avelar-orange-btn">Démarrer votre conception 3D</a>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 6rem;">Vous cherchez à aménager ou rénover un espace au Maroc ?</h2>
+        <p>Faites appel à Yaratech, cabinet d'architecture d'intérieur basé au Maroc, pour une étude de projet complète, une conception 3D sur-mesure, et des solutions adaptées à votre budget.<br>Que ce soit pour un bien neuf ou à rénover, nous vous aidons à transformer votre intérieur avec intelligence, style et efficacité.</p>
     </section>
 
-    <section style="padding-bottom: 8rem;">
-        <div class="project-info-grid">
-            <div class="info-card">
-                <h2>La Demande</h2>
-                <p id="project-desc"></p>
-                <h2>L'Objectif</h2>
-                <p id="project-objective"></p>
-                <div class="project-gallery" id="project-gallery"></div>
+    <section class="cta-final-section">
+        <div class="ymal-container">
+            <div>
+                <h2 class="ymal-title">You May Also Like</h2>
             </div>
-            <div class="sidebar-card">
-                <h4>Services Fournis</h4>
-                <ul id="project-services"></ul>
-                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.15);">
-                    <h4>Partager</h4>
-                    <div style="display: flex; gap: 1.5rem; font-size: 1.4rem; margin-top: 1rem;">
-                        <a href="#" style="color: #ccc; transition: color 0.3s;" onmouseover="this.style.color='#e6a756'" onmouseout="this.style.color='#ccc'"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" style="color: #ccc; transition: color 0.3s;" onmouseover="this.style.color='#e6a756'" onmouseout="this.style.color='#ccc'"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" style="color: #ccc; transition: color 0.3s;" onmouseover="this.style.color='#e6a756'" onmouseout="this.style.color='#ccc'"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <a href="contact.html" class="sidebar-cta">Discuter de votre projet</a>
+            <div class="ymal-list-container">
+                <ul class="ymal-list" id="ymal-list">
+                    <!-- Populated by JS -->
+                </ul>
             </div>
         </div>
-    </section>
-
-    <section style="background: #f8f6f2; padding: 6rem 5%; text-align: center;">
-        <p style="font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 1rem;">PORTFOLIO</p>
-        <h2 style="font-size: 3rem; color: #1a1a1a; margin-bottom: 3rem; font-weight: 600;">Voir toutes nos réalisations</h2>
-        <a href="realisations.html" style="background: #1a1a1a; color: #fff; padding: 1.2rem 3rem; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s;" onmouseover="this.style.background='#e6a756'" onmouseout="this.style.background='#1a1a1a'">Voir le portfolio complet</a>
     </section>
 
     <footer style="margin-top: 0;">
         <div class="footer-content">
             <div class="footer-info">
-                <h3>YARATECH<span>.</span></h3>
+                <h3><span class="yara-accent">Yara</span>cad.Digital</h3>
                 <p>Expertise en aménagement sur mesure - Études 3D haute fidélité - Gestion de projet de bout en bout.</p>
             </div>
             <div class="footer-links">
                 <h4>Contact</h4>
                 <ul>
                     <li><i class="fa-solid fa-location-dot"></i> Fes, Maroc, ETG5 Bureau 33, 75 Rue Al Hoceima, Fès 30000</li>
-                    <li><i class="fa-solid fa-envelope"></i> contact@yaratech.ma</li>
-                    <li><i class="fa-solid fa-phone"></i> +212 07 79 64 45 02</li>
+                    <li><i class="fa-solid fa-envelope"></i> yaracad.agency@gmail.com</li>
+                    <li><i class="fa-brands fa-whatsapp"></i> +212 0661678047</li>
+                        <li><i class="fa-solid fa-phone"></i> +212 0535944021</li>
                 </ul>
             </div>
         </div>
@@ -364,53 +397,78 @@
     <script src="script.js"></script>
     <script>
         // Project Data
+        // Project Data with Avelar-style Details
         const projects = {
             'coworking': {
                 title: 'Espace Coworking',
-                category: 'Bureaux',
                 heroImg: "/assets/bureau.webp",
-                desc: 'Transformation d\'un ancien plateau industriel en un espace de coworking dynamique favorisant la collaboration.',
-                objective: 'Créer un environnement de travail ergonomique avec des zones de concentration et d\'échanges.',
-                services: ['Architecture d\'intérieur', 'Plans 2D/3D', 'Conception de mobilier'],
+                desc: 'Ce projet d\'aménagement concerne un ancien plateau industriel transformé en un espace de coworking dynamique. L\'équipe Yaratech a réalisé une conception 3D sur-mesure pour offrir un cadre fonctionnel et inspirant aux professionnels.',
+                objective: 'Créer un environnement de travail ergonomique avec des zones de concentration et d\'échanges, tout en préservant l\'esprit industriel du lieu.',
+                details: [
+                    '📌 Ville : Casablanca',
+                    '🏠 Type de lieu : Espace Coworking',
+                    '📐 Surface : 350 m²',
+                    '🛠️ Mission Yaratech : Étude de projet, conception 3D, plans techniques',
+                    '🎨 Style : Industriel moderne',
+                    '👤 Profil client : Entrepreneurs et startups'
+                ],
                 gallery: [
                     'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80',
                     'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80',
-                    'https://images.unsplash.com/photo-1497215728101-d56f51097721?w=1200&q=80'
+                    '/assets/br 1.jpg'
                 ]
             },
             'villa': {
-                title: 'Villa de Luxe',
-                category: 'Résidentiel',
+                title: 'Conception 3D et aménagement Villa de Luxe',
                 heroImg: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80',
-                desc: 'Conception d\'une villa contemporaine aux lignes épurées intégrant des matériaux nobles.',
-                objective: 'Maximiser la lumière naturelle et créer une fluidité entre intérieur et extérieur.',
-                services: ['Architecture moderne', 'Design d\'intérieur', 'Suivi de chantier'],
+                desc: 'Ce projet haut de gamme concerne une villa d\'exception conçue pour maximiser la lumière naturelle. Yaratech a proposé une architecture d\'intérieur épurée intégrant des matériaux nobles.',
+                objective: 'Créer une fluidité parfaite entre les espaces intérieurs et les terrasses extérieures, tout en garantissant un très haut niveau de finitions.',
+                details: [
+                    '📌 Ville : Rabat',
+                    '🏠 Type de lieu : Villa contemporaine',
+                    '📐 Surface : 600 m²',
+                    '🛠️ Mission Yaratech : Architecture d\'intérieur, choix des matériaux, suivi architectural',
+                    '🎨 Style : Contemporain minimaliste',
+                    '👤 Profil client : Famille'
+                ],
                 gallery: [
                     'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
-                    'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80',
-                    'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80'
+                    '/assets/villa 2.avif',
+                    '/assets/Villa 1.webp'
                 ]
             },
             'restaurant': {
-                title: 'Restaurant Gourmet',
-                category: 'Restauration',
+                title: 'Aménagement Restaurant Gourmet',
                 heroImg: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80',
-                desc: 'Aménagement d\'un restaurant gastronomique avec une ambiance feutrée et élégante.',
-                objective: 'Créer une expérience client mémorable à travers un design immersif.',
-                services: ['Concept créatif', 'Agencement salle', 'Éclairage d\'ambiance'],
+                desc: 'Aménagement complet d\'un restaurant gastronomique. Le concept repose sur une ambiance feutrée et élégante, pensée pour sublimer l\'expérience culinaire des clients.',
+                objective: 'Créer une identité visuelle immersive avec un traitement acoustique et lumineux très pointu.',
+                details: [
+                    '📌 Ville : Marrakech',
+                    '🏠 Type de lieu : Restaurant gastronomique',
+                    '📐 Surface : 220 m²',
+                    '🛠️ Mission Yaratech : Concept créatif, agencement, plan d\'éclairage',
+                    '🎨 Style : Élégant et chaleureux',
+                    '👤 Profil client : Chef restaurateur'
+                ],
                 gallery: [
                     'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80',
-                    'https://images.unsplash.com/photo-1550966841-3ee39b2a444d?w=800&q=80',
+                    '/assets/rest 1.jpg',
                     'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1200&q=80'
                 ]
             },
             'appartement': {
-                title: 'Appartement de Maître',
-                category: 'Résidentiel',
+                title: 'Conception 3D Appartement de Maître',
                 heroImg: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80',
-                desc: 'Rénovation d\'un appartement de standing alliant charme de l\'ancien et confort moderne.',
-                objective: 'Optimiser l\'espace tout en conservant le cachet architectural.',
-                services: ['Rénovation lourde', 'Décoration', 'Ameublement'],
+                desc: 'Ce projet de rénovation concerne un vaste appartement en plein centre-ville. L\'objectif de Yaratech était d\'allier le charme de l\'ancien (moulures, parquet) avec un confort résolument moderne.',
+                objective: 'Optimiser la répartition des pièces et apporter de la clarté tout en conservant le cachet d\'origine.',
+                details: [
+                    '📌 Ville : Casablanca',
+                    '🏠 Type de lieu : Appartement Haussmannien',
+                    '📐 Surface : 180 m²',
+                    '🛠️ Mission Yaratech : Rénovation lourde, conception 3D, aménagement sur mesure',
+                    '🎨 Style : Classique revisité',
+                    '👤 Profil client : Couple de cadres'
+                ],
                 gallery: [
                     'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80',
                     'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&q=80',
@@ -418,38 +476,56 @@
                 ]
             },
             'clinique': {
-                title: 'Clinique Privée',
-                category: 'Médical',
+                title: 'Aménagement Cabinet Dentaire',
                 heroImg: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&q=80',
-                desc: 'Aménagement d\'un cabinet dentaire haut de gamme respectant les normes d\'hygiène.',
-                objective: 'Offrir un environnement apaisant pour les patients et fonctionnel pour les praticiens.',
-                services: ['Planification médicale', 'Design aseptique', 'Acoustique'],
+                desc: 'Conception d\'un cabinet médical répondant à des normes d\'hygiène strictes tout en offrant un cadre luxueux et apaisant, loin de l\'esthétique froide des cliniques traditionnelles.',
+                objective: 'Offrir un parcours patient fluide, rassurant, et garantir l\'ergonomie absolue pour les praticiens.',
+                details: [
+                    '📌 Ville : Fès',
+                    '🏠 Type de lieu : Cabinet médical privé',
+                    '📐 Surface : 140 m²',
+                    '🛠️ Mission Yaratech : Aménagement technique, design aseptique, décoration',
+                    '🎨 Style : Zen et épuré',
+                    '👤 Profil client : Groupe de praticiens'
+                ],
                 gallery: [
-                    'https://images.unsplash.com/photo-1629908323163-424a29798ef5?w=800&q=80',
+                    '/assets/cab dent 1.webp',
                     'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80',
                     'https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1200&q=80'
                 ]
             },
             'showroom': {
-                title: 'Showroom Concept',
-                category: 'Commercial',
-                heroImg: 'https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1200&q=80',
-                desc: 'Création d\'un espace d\'exposition automobile mettant en scène des véhicules de prestige.',
-                objective: 'Théâtraliser les produits par un jeu de lumières et de contrastes.',
-                services: ['Design de showroom', 'Ingénierie lumière', 'Signalétique'],
+                title: 'Amenagement boutique de vetement',
+                heroImg: '/assets/img vet 4.webp',
+                desc: 'Un espace de vente pensé comme un écrin. L\'aménagement a été étudié pour fluidifier le parcours client et mettre en majesté les différentes collections de vêtements.',
+                objective: 'Miser sur la noblesse des matériaux et un éclairage sur-mesure pour sublimer les articles.',
+                details: [
+                    '📌 Ville : Tanger',
+                    '🏠 Type de lieu : Boutique / Showroom',
+                    '📐 Surface : 90 m²',
+                    '🛠️ Mission Yaratech : Concept store, aménagement, agencement vitrine',
+                    '🎨 Style : Chic et contemporain',
+                    '👤 Profil client : Marque de prêt-à-porter'
+                ],
                 gallery: [
-                    'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80',
-                    'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80',
-                    'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=1200&q=80'
+                    '/assets/img vet 3.jpg',
+                    '/assets/img vet  2.jpg',
+                    '/assets/img vet 4.webp'
                 ]
             },
             'hotel': {
-                title: 'Hôtel Boutique',
-                category: 'Hôtellerie',
+                title: 'Décoration Hôtel Boutique',
                 heroImg: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80',
-                desc: 'Design intérieur d\'un hôtel de luxe privilégiant le confort et l\'élégance.',
-                objective: 'Créer une identité visuelle forte et accueillante pour une clientèle exigeante.',
-                services: ['Conception des chambres', 'Aménagement lobby', 'Décoration'],
+                desc: 'Intervention sur la décoration intérieure d\'un boutique hôtel. Yaratech a apporté une signature visuelle unique à chaque espace pour marquer les esprits de la clientèle.',
+                objective: 'Concevoir des chambres thématiques offrant le plus grand confort avec des matériaux chaleureux.',
+                details: [
+                    '📌 Ville : Marrakech',
+                    '🏠 Type de lieu : Établissement hôtelier',
+                    '📐 Surface : 1200 m²',
+                    '🛠️ Mission Yaratech : Décoration intérieure, sourcing mobilier',
+                    '🎨 Style : Bohème chic de luxe',
+                    '👤 Profil client : Investisseurs hôteliers'
+                ],
                 gallery: [
                     'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&q=80',
                     'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80',
@@ -457,29 +533,98 @@
                 ]
             },
             'spa': {
-                title: 'Espace Bien-être',
-                category: 'Loisirs',
+                title: 'Conception Espace Bien-être SPA',
                 heroImg: "/assets/SPA.webp",
-                desc: 'Conception d\'un spa haut de gamme offrant une expérience sensorielle unique.',
-                objective: 'Favoriser la relaxation par l\'utilisation de matériaux naturels et d\'un éclairage doux.',
-                services: ['Aménagement SPA', 'Design sensoriel', 'Gestion technique'],
+                desc: 'Création d\'un espace SPA premium dédié à la relaxation. L\'aménagement favorise la déconnexion immédiate à travers des teintes douces et une acoustique maîtrisée.',
+                objective: 'Transformer les volumes pour créer un véritable parcours sensoriel (hammam, massage, détente).',
+                details: [
+                    '📌 Ville : Fes',
+                    '🏠 Type de lieu : Centre de bien-être',
+                    '📐 Surface : 280 m²',
+                    '🛠️ Mission Yaratech : Conception 3D, étude éclairage, choix des textures',
+                    '🎨 Style : Organique et relaxant',
+                    '👤 Profil client : Centre hôtelier'
+                ],
                 gallery: [
                     'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80',
-                    'https://images.unsplash.com/photo-1531853127624-1e5a20028274?w=800&q=80',
-                    'https://images.unsplash.com/photo-1596178065864-82f238b6938d?w=1200&q=80'
+                    'https://www.lediana.com/wp-content/uploads/2025/09/Espace-bien-etre-spa-Diana-scaled.jpg',
+                    'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/31/2f/9c/ac/treat-room-at-isawan.jpg?w=1200&h=-1&s=1'
                 ]
             },
             'avocat': {
-                title: 'Cabinet d\'Avocats',
-                category: 'Bureaux',
+                title: 'Aménagement Cabinet d\'Avocats',
                 heroImg: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=80',
-                desc: 'Aménagement de bureaux prestigieux reflétant la rigueur et le succès d\'un grand cabinet.',
-                objective: 'Allier confidentialité et élégance dans un cadre professionnel de haut standing.',
-                services: ['Agencement de bureaux', 'Cloisonnement acoustique', 'Choix du mobilier'],
+                desc: 'Aménagement de bureaux de prestige reflétant l\'autorité, la rigueur et le succès d\'un cabinet d\'avocats de renom. Le projet intègre une bibliothèque juridique sur-mesure.',
+                objective: 'Garantir une confidentialité phonique totale tout en offrant des espaces de réunion imposants.',
+                details: [
+                    '📌 Ville : Casablanca',
+                    '🏠 Type de lieu : Bureaux professionnels',
+                    '📐 Surface : 200 m²',
+                    '🛠️ Mission Yaratech : Cloisonnement acoustique, agencement, menuiserie sur-mesure',
+                    '🎨 Style : Corporate statutaire',
+                    '👤 Profil client : Cabinet juridique'
+                ],
                 gallery: [
                     "/assets/avocat 1.avif",
                     "/assets/avocat 2.webp",
                     "/assets/avocat 3.jpg" 
+                ]
+            },
+            'medical': {
+                title: 'Design Cabinet Médical Moderne',
+                heroImg: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&q=80',
+                desc: 'Un aménagement axé sur le bien-être avec des courbes douces et un éclairage naturel indirect. Le cabinet bénéficie d\'une salle d\'attente conçue comme un salon VIP.',
+                objective: 'Casser les codes traditionnels de la salle d\'attente pour diminuer l\'anxiété des patients.',
+                details: [
+                    '📌 Ville : Rabat',
+                    '🏠 Type de lieu : Cabinet de consultation',
+                    '📐 Surface : 110 m²',
+                    '🛠️ Mission Yaratech : Conception 3D, optimisation de l\'espace',
+                    '🎨 Style : Moderne rassurant',
+                    '👤 Profil client : Spécialiste de la santé'
+                ],
+                gallery: [
+                    'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80',
+                    'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80',
+                    './assets/medic 1.jpg'
+                ]
+            },
+            'suite': {
+                title: 'Aménagement Suite Parentale',
+                heroImg: 'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=1200&q=80',
+                desc: 'Création ex-nihilo d\'une suite parentale incluant un espace sommeil, un dressing sur-mesure éclairé et une salle de bain privative ouverte à la décoration minérale.',
+                objective: 'Créer un cocon intime de très grand confort, digne des plus grands hôtels internationaux.',
+                details: [
+                    '📌 Ville : Fès',
+                    '🏠 Type de lieu : Espace résidentiel privé',
+                    '📐 Surface : 45 m²',
+                    '🛠️ Mission Yaratech : Conception de dressing, aménagement de salle de bain',
+                    '🎨 Style : Minimaliste luxe',
+                    '👤 Profil client : Particulier'
+                ],
+                gallery: [
+                    '/assets/suite 1.jpg',
+                    '/assets/suite 2.webp',
+                    'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=1200&q=80'
+                ]
+            },
+            'bureau-voyage': {
+                title: 'Agencement d\'un bureau d\'agence de voyage',
+                heroImg: './assets/br vogage.jpg',
+                desc: 'Aménagement complet d\'une agence de voyage haut de gamme. L\'espace a été pensé pour inspirer l\'évasion dès l\'entrée, tout en offrant des postes de conseil privatifs et confortables.',
+                objective: 'Créer une atmosphère accueillante et statutaire, alliant matériaux nobles (marbre, bois sombre) et technologie pour faciliter la présentation des séjours.',
+                details: [
+                    '📌 Ville : Rabat',
+                    '🏠 Type de lieu : Agence de voyage / Bureaux',
+                    '📐 Surface : 150 m²',
+                    '🛠️ Mission Yaratech : Design d\'intérieur, choix du mobilier sur-mesure, éclairage',
+                    '🎨 Style : Contemporain de luxe',
+                    '👤 Profil client : Agence de voyage premium'
+                ],
+                gallery: [
+                    './assets/br voyage 2.jpg',
+                    './assets/br voyage 3.jpg',
+                    './assets/br voyage 4.jpg'
                 ]
             }
         };
@@ -491,7 +636,6 @@
 
         if (project) {
             document.getElementById('project-title').textContent = project.title;
-            document.getElementById('project-category').textContent = project.category;
             
             const heroImg = document.getElementById('hero-img');
             heroImg.style.opacity = '0';
@@ -503,25 +647,32 @@
             };
             heroImg.src = project.heroImg;
 
+            // Description can stay simple or have the drop cap if desired. The Avelar style uses normal text.
             document.getElementById('project-desc').textContent = project.desc;
+            
             document.getElementById('project-objective').textContent = project.objective;
 
-            // Load services
-            const servicesList = document.getElementById('project-services');
-            project.services.forEach(service => {
-                const li = document.createElement('li');
-                li.innerHTML = `<i class="fa-solid fa-check"></i> ${service}`;
-                servicesList.appendChild(li);
-            });
+            // Load Avelar-style details list
+            const detailsList = document.getElementById('project-details');
+            if (project.details && project.details.length > 0) {
+                project.details.forEach(detail => {
+                    const li = document.createElement('li');
+                    li.textContent = detail;
+                    detailsList.appendChild(li);
+                });
+            }
 
-            // Load gallery
+            // Load gallery with masonry effect
             const gallery = document.getElementById('project-gallery');
             project.gallery.forEach((imgSrc, index) => {
-                const div = document.createElement('div');
-                div.className = `gallery-item ${index === 2 ? 'gallery-full' : ''}`;
-                
                 const img = document.createElement('img');
-                img.alt = `Angle ${index + 1}`;
+                img.alt = `Vue ${index + 1}`;
+                
+                // Make every 3rd image full width
+                if (index % 3 === 2) {
+                    img.classList.add('full-width');
+                }
+                
                 img.onload = () => img.classList.add('loaded');
                 img.onerror = () => {
                     img.src = 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80';
@@ -529,9 +680,27 @@
                 };
                 img.src = imgSrc;
                 
-                div.appendChild(img);
-                gallery.appendChild(div);
+                gallery.appendChild(img);
             });
+
+            // Populate You May Also Like (YMAL) list
+            const ymalList = document.getElementById('ymal-list');
+            const allProjectIds = Object.keys(projects).filter(id => id !== projectId);
+            
+            // Get 3 random projects
+            const shuffled = allProjectIds.sort(() => 0.5 - Math.random());
+            const selectedIds = shuffled.slice(0, 3);
+
+            selectedIds.forEach(id => {
+                const p = projects[id];
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <a href="projet-detail.html?id=${id}">${p.title}</a>
+                    <div class="ymal-meta">/<br>Nos Réalisations</div>
+                `;
+                ymalList.appendChild(li);
+            });
+
         } else {
             window.location.href = 'index.html#portfolio';
         }
